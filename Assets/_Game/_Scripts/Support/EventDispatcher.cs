@@ -180,6 +180,7 @@ public static class EventDispatcherExtension
 public enum EventID
 {
     None = 0,
+    ApplyObject,
 }
 
 #endregion
