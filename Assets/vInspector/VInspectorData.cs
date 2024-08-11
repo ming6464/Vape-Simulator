@@ -59,6 +59,9 @@ namespace VInspector
 
                     if (member.GetCustomAttribute<IfAttribute>() is IfAttribute ifAttribute)
                         button.ifAttribute = ifAttribute;
+                    
+                    if (member.GetCustomAttribute<IfAnyAttribute>() is IfAnyAttribute ifAnyAttribute)
+                        button.ifAnyAttribute = ifAnyAttribute;
 
 
                     if (member is FieldInfo field && field.FieldType == typeof(bool))
@@ -258,6 +261,7 @@ namespace VInspector
             public float size = 30;
             public float space = 0;
             public IfAttribute ifAttribute;
+            public IfAnyAttribute ifAnyAttribute;
             public System.Action<Object> action;
             public System.Func<bool> isPressed;
 

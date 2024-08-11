@@ -18,10 +18,10 @@ public class WeaponLayer_Ctrl : LayerBase
     
     [Foldout("Asset")]
     [SerializeField]
-    private Card_Ctrl _weaponCardPrefab;
+    private CardChangeItem _weaponCardPrefab;
 
     [SerializeField]
-    private Card_Ctrl _backgroundCardPrefab;
+    private CardChangeItem _backgroundCardPrefab;
     [EndFoldout]
     private void Start()
     {

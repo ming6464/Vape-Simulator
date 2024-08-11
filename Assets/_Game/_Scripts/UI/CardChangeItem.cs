@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Game._Scripts.UI;
 using UnityEngine;
 using UnityEngine.UI;
 using VInspector;
 
-public class Card_Ctrl : MonoBehaviour
+public class CardChangeItem : CardBase,IOnClickNoVariable
 {
+    [Tab("Card")]
     [Foldout("Reference")]
     [SerializeField]
     private Image _icon;
@@ -21,7 +23,7 @@ public class Card_Ctrl : MonoBehaviour
         _eventID     = eventID;
     }
     
-    public void ApplyObj()
+    public void OnClick()
     {
         EventDispatcher.Instance.PostEvent(_eventID,_obj);
     }

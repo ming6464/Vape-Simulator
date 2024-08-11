@@ -161,11 +161,24 @@ namespace VInspector
 
                         var ifAttribute = fieldInfo.GetCustomAttribute<IfAttribute>();
 
-                        if (ifAttribute is HideIfAttribute) hide = ifAttribute.Evaluate(target);
-                        if (ifAttribute is ShowIfAttribute) hide = !ifAttribute.Evaluate(target);
-                        if (ifAttribute is DisableIfAttribute) disable = ifAttribute.Evaluate(target);
-                        if (ifAttribute is EnableIfAttribute) disable = !ifAttribute.Evaluate(target);
+                        if (ifAttribute == null)
+                        {
+                            var ifAnyAttribute = fieldInfo.GetCustomAttribute<IfAnyAttribute>();
+                            if (ifAnyAttribute is HideIfAnyAttribute) hide       = ifAnyAttribute.Evaluate(target);
+                            if (ifAnyAttribute is ShowIfAnyAttribute) hide       = !ifAnyAttribute.Evaluate(target);
+                            if (ifAnyAttribute is DisableIfAnyAttribute) disable = ifAnyAttribute.Evaluate(target);
+                            if (ifAnyAttribute is EnableIfAnyAttribute) disable  = !ifAnyAttribute.Evaluate(target);
 
+                        }
+                        else
+                        {
+                            if (ifAttribute is HideIfAttribute) hide       = ifAttribute.Evaluate(target);
+                            if (ifAttribute is ShowIfAttribute) hide       = !ifAttribute.Evaluate(target);
+                            if (ifAttribute is DisableIfAttribute) disable = ifAttribute.Evaluate(target);
+                            if (ifAttribute is EnableIfAttribute) disable  = !ifAttribute.Evaluate(target);
+                        }
+
+                        
 
                         var curFieldDeclaringType = fieldInfo.DeclaringType;
 
@@ -292,12 +305,18 @@ namespace VInspector
                 {
                     if (button.tab != "" && !selectedTabPath.StartsWith(button.tab)) continue;
 
-                    if (button.ifAttribute is HideIfAttribute && button.ifAttribute.Evaluate(target)) continue;
-                    if (button.ifAttribute is ShowIfAttribute && !button.ifAttribute.Evaluate(target)) continue;
+                    var ifAttribute    = button.ifAttribute;
+                    var ifAnyAttribute = button.ifAnyAttribute;
+                    if (ifAttribute is HideIfAttribute && ifAttribute.Evaluate(target)) continue;
+                    if (ifAttribute is ShowIfAttribute && !ifAttribute.Evaluate(target)) continue;
+                    if (ifAnyAttribute is HideIfAnyAttribute && ifAnyAttribute.Evaluate(target)) continue;
+                    if (ifAnyAttribute is ShowIfAnyAttribute&& !ifAnyAttribute.Evaluate(target)) continue;
 
                     var prevGuiEnabled = GUI.enabled;
-                    if (button.ifAttribute is DisableIfAttribute && button.ifAttribute.Evaluate(target)) GUI.enabled = false;
-                    if (button.ifAttribute is EnableIfAttribute && !button.ifAttribute.Evaluate(target)) GUI.enabled = false;
+                    if (ifAttribute is DisableIfAttribute && ifAttribute.Evaluate(target)) GUI.enabled = false;
+                    if (ifAttribute is EnableIfAttribute && !ifAttribute.Evaluate(target)) GUI.enabled = false;
+                    if (ifAnyAttribute is DisableIfAnyAttribute && ifAnyAttribute.Evaluate(target)) GUI.enabled = false;
+                    if (ifAnyAttribute is EnableIfAnyAttribute && !ifAnyAttribute.Evaluate(target)) GUI.enabled = false;
 
 
                     GUILayout.Space(button.space - 2);

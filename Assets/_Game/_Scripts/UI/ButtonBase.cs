@@ -1,13 +1,14 @@
+using _Game._Scripts.UI;
 using UnityEngine;
 using UnityEngine.UI;
 using VInspector;
 
-public abstract class ButtonBase : MonoBehaviour
+public abstract class ButtonBase : MonoBehaviour,IOnClickNoVariable
 {
     [Tab("Base")]
     [SerializeField]
     private bool _addEventOnCode;
-    [SerializeField,ShowIf("_addEventOnCode")]
+    [SerializeField,ShowIf("_addEventOnCode",true)]
     private Button _button;
     [EndIf]
     [EndTab]

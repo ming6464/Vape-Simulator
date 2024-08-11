@@ -186,6 +186,9 @@ public enum EventID
     LoadSceneByIndex,
     LoadSceneMain,
     LoadSceneStart,
+    OpenSettingLayer,
+    OpenMenuSelect,
+    OpenChangeCharacterLayer
 }
 
 #endregion
