@@ -1,5 +1,7 @@
 using System;
 using _Game._Scripts.Data;
+using _Game._Scripts.Support;
+using UnityEditor;
 using UnityEngine;
 using VInspector;
 
@@ -7,23 +9,21 @@ namespace _Game._Scripts
 {
     public class DataConfig : Singleton<DataConfig>
     {
-        //Property
-        public SimulateObjectInfo[] WeaponInfos => _weaponSo.objectInfos;
-        public BackgroundInfo[] BackgroundSoInfos => _backgroundSo.backgrounds;
-
-        public int IdObjectDefault => _idObjectDefault;
-
-        public SimulationMode CurrentSimulationMode => _simulationMode;
-
-        public string StartScene   => _startSceneName;
-        public string MainScene    => _mainSceneName;
-        public string LoadingScene => _loadingSceneName;
-        
         //
         [Foldout("Data")]
+        
         [SerializeField]
-        private SimulateObjectSO _weaponSo;
-
+        private SimulateObjectSO _vapeSo;
+        
+        [SerializeField]
+        private SimulateObjectSO _machineGunSo;
+        
+        [SerializeField]
+        private SimulateObjectSO _scifiGun;
+        
+        [SerializeField]
+        private SimulateObjectSO _lightSaber;
+        
         [SerializeField]
         private BackgroundSO _backgroundSo;
 
@@ -37,27 +37,23 @@ namespace _Game._Scripts
         [SerializeField]
         private string _loadingSceneName;
 
-        private int _idObjectDefault;
-
-        private SimulationMode _simulationMode;
-
-        public void SetIdObjectDefault(int id)
+        public override void Awake()
         {
-            _idObjectDefault = id;
+            base.Awake();
+            LoadDataShare();
         }
 
-        public void SetSimulationMode(SimulationMode simulationMode)
+        private void LoadDataShare()
         {
-            _simulationMode = simulationMode;
+            DataShare.Instance.SetData(DataShareKey.VapeData,_vapeSo.objectInfos);
+            DataShare.Instance.SetData(DataShareKey.MachineGunData,_machineGunSo.objectInfos);
+            DataShare.Instance.SetData(DataShareKey.ScifiGunData,_scifiGun.objectInfos);
+            DataShare.Instance.SetData(DataShareKey.LightSaberData,_lightSaber.objectInfos);
+            DataShare.Instance.SetData(DataShareKey.BackgroundData,_backgroundSo.backgrounds);
+            DataShare.Instance.SetData(DataShareKey.MainSceneName,_mainSceneName);
+            DataShare.Instance.SetData(DataShareKey.StartSceneName,_startSceneName);
+            DataShare.Instance.SetData(DataShareKey.LoadingSceneName,_loadingSceneName);
         }
     }
-
-    [Serializable]
-    public enum SimulationMode
-    {
-        Vape,
-        MachineGun,
-        ScifiGun,
-        LightSaber
-    }
+    
 }

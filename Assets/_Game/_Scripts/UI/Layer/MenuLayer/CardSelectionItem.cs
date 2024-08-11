@@ -21,7 +21,8 @@ namespace _Game._Scripts.UI.Layer.MenuLayer
 
         public void OnClick()
         {
-            EventDispatcher.Instance.PostEvent(EventID.LoadSceneMain);
+            this.SetData(DataShareKey.IdObjSelectionDefault,_idObject);
+            this.PostEvent(EventID.LoadSceneMain);
         }
     }
 }

@@ -18,7 +18,6 @@ public class ResizeImage : MonoBehaviour
     //
     private RectTransform _imageRtf;
 
-    private EventDispatcher _eventDispatcher;
     
     private void Awake()
     {
@@ -27,11 +26,7 @@ public class ResizeImage : MonoBehaviour
 
     private void OnEnable()
     {
-        if (!_eventDispatcher)
-        {
-            _eventDispatcher = EventDispatcher.Instance;
-        }
-        _eventDispatcher.RegisterListener(EventID.ApplyBackground,ApplyBackground);
+        this.RegisterListener(EventID.ApplyBackground,ApplyBackground);
     }
 
     private void ApplyBackground(object obj)

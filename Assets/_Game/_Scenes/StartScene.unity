@@ -462,7 +462,6 @@ GameObject:
   - component: {fileID: 225373629}
   - component: {fileID: 225373628}
   - component: {fileID: 225373627}
-  - component: {fileID: 225373630}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -572,26 +571,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 225373625}
   m_CullTransparentMesh: 1
---- !u!114 &225373630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 225373625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18f300e7a36044a0a48cbdf3b3619b46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _addEventOnCode: 1
-  _button: {fileID: 225373627}
-  _eventID: 0
-  _valuePost: Null
-  _int: 0
-  _float: 0
-  _string: 
-  _bool: 0
 --- !u!1 &271973099
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,7 +664,6 @@ GameObject:
   - component: {fileID: 345574552}
   - component: {fileID: 345574551}
   - component: {fileID: 345574550}
-  - component: {fileID: 345574553}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -795,26 +773,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345574548}
   m_CullTransparentMesh: 1
---- !u!114 &345574553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 345574548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18f300e7a36044a0a48cbdf3b3619b46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _addEventOnCode: 1
-  _button: {fileID: 345574550}
-  _eventID: 0
-  _valuePost: Null
-  _int: 0
-  _float: 0
-  _string: 
-  _bool: 0
 --- !u!1 &390561264
 GameObject:
   m_ObjectHideFlags: 0
@@ -2282,7 +2240,6 @@ GameObject:
   - component: {fileID: 1304508933}
   - component: {fileID: 1304508932}
   - component: {fileID: 1304508931}
-  - component: {fileID: 1304508934}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -2392,26 +2349,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304508929}
   m_CullTransparentMesh: 1
---- !u!114 &1304508934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1304508929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18f300e7a36044a0a48cbdf3b3619b46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _addEventOnCode: 1
-  _button: {fileID: 1304508931}
-  _eventID: 0
-  _valuePost: Null
-  _int: 0
-  _float: 0
-  _string: 
-  _bool: 0
 --- !u!1 &1330563258
 GameObject:
   m_ObjectHideFlags: 0
@@ -2843,7 +2780,6 @@ GameObject:
   - component: {fileID: 1571609893}
   - component: {fileID: 1571609892}
   - component: {fileID: 1571609891}
-  - component: {fileID: 1571609894}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -2953,26 +2889,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571609889}
   m_CullTransparentMesh: 1
---- !u!114 &1571609894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1571609889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18f300e7a36044a0a48cbdf3b3619b46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _addEventOnCode: 1
-  _button: {fileID: 1571609891}
-  _eventID: 0
-  _valuePost: Null
-  _int: 0
-  _float: 0
-  _string: 
-  _bool: 0
 --- !u!1 &1599479767
 GameObject:
   m_ObjectHideFlags: 0
@@ -3527,6 +3443,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1125691647799439218, guid: f22f803819d241341bde6f38d7ade703,
+        type: 3}
+      propertyPath: _vapeSo
+      value: 
+      objectReference: {fileID: 11400000, guid: 1c96ccc5ea5aa1d4b9e0eea597d68a40,
+        type: 2}
+    - target: {fileID: 1125691647799439218, guid: f22f803819d241341bde6f38d7ade703,
+        type: 3}
+      propertyPath: _scifiGun
+      value: 
+      objectReference: {fileID: 11400000, guid: 728f5994c3aaed1439806199084a14d7,
+        type: 2}
+    - target: {fileID: 1125691647799439218, guid: f22f803819d241341bde6f38d7ade703,
+        type: 3}
+      propertyPath: _lightSaber
+      value: 
+      objectReference: {fileID: 11400000, guid: ff98d0ad8d784e241b289118bc06b164,
+        type: 2}
+    - target: {fileID: 1125691647799439218, guid: f22f803819d241341bde6f38d7ade703,
+        type: 3}
+      propertyPath: _machineGunSo
+      value: 
+      objectReference: {fileID: 11400000, guid: 577e372b19a662a41bee8be219b2509a,
+        type: 2}
     - target: {fileID: 1453852128276242408, guid: f22f803819d241341bde6f38d7ade703,
         type: 3}
       propertyPath: m_Name

@@ -95,10 +95,5 @@ namespace _Game._Scripts
         public float      speedRotate;
         public AxisRotate axisRotate;
     }
-
-    [Serializable]
-    public enum AxisRotate
-    {
-        Up,Down,Right,Left,Forward,Backward
-    }
+    
 }

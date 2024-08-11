@@ -2,28 +2,26 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using _Game._Scripts;
+using _Game._Scripts.Support;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LoadingManager : MonoBehaviour
 {
-    private EventDispatcher _eventDispatcher;
     private void OnEnable()
     {
-        if (!_eventDispatcher)
+        this.RegisterListener(EventID.LoadSceneByName,LoadSceneByName);
+        this.RegisterListener(EventID.LoadSceneByIndex,LoadSceneByIndex);
+        this.RegisterListener(EventID.LoadSceneMain, (_) =>
         {
-            _eventDispatcher = EventDispatcher.Instance;
-        }
-        
-        _eventDispatcher.RegisterListener(EventID.LoadSceneByName,LoadSceneByName);
-        _eventDispatcher.RegisterListener(EventID.LoadSceneByIndex,LoadSceneByIndex);
-        _eventDispatcher.RegisterListener(EventID.LoadSceneMain, (_) =>
-        {
-            LoadSceneByName(DataConfig.Instance.MainScene);
+            if (!this.TryGetData(DataShareKey.MainSceneName ,out string data)) return;
+            LoadSceneByName(data);
+            
         });
-        _eventDispatcher.RegisterListener(EventID.LoadSceneStart, (_) =>
+        this.RegisterListener(EventID.LoadSceneStart, (_) =>
         {
-            LoadSceneByName(DataConfig.Instance.StartScene);
+            if (!this.TryGetData(DataShareKey.StartSceneName,out string data)) return;
+            LoadSceneByName(data);
         });
     }
 

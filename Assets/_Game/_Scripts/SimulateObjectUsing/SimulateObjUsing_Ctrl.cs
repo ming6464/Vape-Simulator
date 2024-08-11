@@ -12,16 +12,10 @@ public class SimulateObjUsing_Ctrl : MonoBehaviour
     [SerializeField]
     private Transform _parentObj;
     //
-    private EventDispatcher _eventDispatcher;
     
     private void OnEnable()
     {
-        if (!_eventDispatcher)
-        {
-            _eventDispatcher = EventDispatcher.Instance;
-        }
-        
-        _eventDispatcher.RegisterListener(EventID.ApplyObject,ApplyObj);
+        this.RegisterListener(EventID.ApplyObject,ApplyObj);
     }
 
     private void ApplyObj(object obj)

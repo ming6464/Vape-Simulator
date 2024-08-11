@@ -1,4 +1,5 @@
 using System;
+using _Game._Scripts.Support;
 using UnityEngine;
 using UnityEngine.UI;
 using VInspector;
@@ -11,21 +12,15 @@ namespace _Game._Scripts.UI.Layer.GameModeLayer
         [SerializeField]
         private ButtonSelectMode[] _buttonSelectModes;
 
-        private EventDispatcher _eventDispatcher;
-        private void OnEnable()
+        protected override void OnEnable()
         {
-            if (!_eventDispatcher)
-            {
-                _eventDispatcher = EventDispatcher.Instance;
-            }
-
             foreach (var buttonSelectMode in _buttonSelectModes)
             {
                 buttonSelectMode.button.onClick.AddListener(() => LoadMode(buttonSelectMode.mode));
             }
         }
 
-        private void OnDisable()
+        protected override void OnDisable()
         {
             foreach (var buttonSelectMode in _buttonSelectModes)
             {
@@ -35,8 +30,8 @@ namespace _Game._Scripts.UI.Layer.GameModeLayer
 
         private void LoadMode(SimulationMode mode)
         {
-            DataConfig.Instance.SetSimulationMode(mode);
-            _eventDispatcher.PostEvent(EventID.None,mode);
+            DataShare.Instance.SetData(DataShareKey.SimulationMode,mode);
+            this.PostEvent(EventID.OpenMenuSelectionLayer);
         }
     }
 

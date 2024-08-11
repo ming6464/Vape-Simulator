@@ -145,7 +145,6 @@ public class EventDispatcher : MonoBehaviour
     
 }
 
-
 #region Extension class
 
 /// <summary>
@@ -159,6 +158,11 @@ public static class EventDispatcherExtension
         EventDispatcher.Instance.RegisterListener(eventID, callback);
     }
 
+    public static void RemoveListener(this MonoBehaviour listener, EventID eventID, Action<object> calback)
+    {
+        EventDispatcher.Instance.RemoveListener(eventID, calback);
+    }
+
     /// Post event with param
     public static void PostEvent(this MonoBehaviour listener, EventID eventID, object param)
     {
@@ -170,25 +174,6 @@ public static class EventDispatcherExtension
     {
         EventDispatcher.Instance.PostEvent(eventID, null);
     }
-}
-
-#endregion
-
-#region eventID
-
-[Serializable]
-public enum EventID
-{
-    None = 0,
-    ApplyObject,
-    ApplyBackground,
-    LoadSceneByName,
-    LoadSceneByIndex,
-    LoadSceneMain,
-    LoadSceneStart,
-    OpenSettingLayer,
-    OpenMenuSelect,
-    OpenChangeCharacterLayer
 }
 
 #endregion

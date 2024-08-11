@@ -45,7 +45,7 @@ namespace _Game._Scripts.UI
                     value = _bool;
                     break;
             }
-            EventDispatcher.Instance.PostEvent(_eventID,value);
+            this.PostEvent(_eventID,value);
         }
     }
 }

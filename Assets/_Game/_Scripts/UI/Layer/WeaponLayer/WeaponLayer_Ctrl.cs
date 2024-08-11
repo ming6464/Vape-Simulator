@@ -1,11 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using _Game._Scripts;
 using _Game._Scripts.Data;
 using UnityEngine;
 using VInspector;
-using Random = UnityEngine.Random;
 
 public class WeaponLayer_Ctrl : LayerBase
 {
@@ -23,27 +18,30 @@ public class WeaponLayer_Ctrl : LayerBase
     [SerializeField]
     private CardChangeItem _backgroundCardPrefab;
     [EndFoldout]
-    private void Start()
+    protected override void Start()
     {
         Init();
     }
 
     private void Init()
     {
-        var weaponInfos     = DataConfig.Instance.WeaponInfos;
-        var backgroundInfos = DataConfig.Instance.BackgroundSoInfos;
-        
-        foreach (var weaponInfo in weaponInfos)
+        if (this.TryGetData(DataShareKey.MachineGunData, out SimulateObjectInfo[] weaponInfos))
         {
-            var card = Instantiate(_weaponCardPrefab, _listWeaponTf,false);
-            card.SetData(weaponInfo.prefab,weaponInfo.icon,EventID.ApplyObject);
-            card.name = weaponInfo.name;
+            foreach (var weaponInfo in weaponInfos)
+            {
+                var card = Instantiate(_weaponCardPrefab, _listWeaponTf,false);
+                card.SetData(weaponInfo.prefab,weaponInfo.icon,EventID.ApplyObject);
+                card.name = weaponInfo.name;
+            }
         }
 
-        foreach (var bgInfo in backgroundInfos)
+        if (this.TryGetData(DataShareKey.BackgroundData, out BackgroundInfo[] backgroundInfos))
         {
-            var card = Instantiate(_backgroundCardPrefab, _listBackgroundTf,false);
-            card.SetData(bgInfo,bgInfo.icon,EventID.ApplyBackground);
+            foreach (var bgInfo in backgroundInfos)
+            {
+                var card = Instantiate(_backgroundCardPrefab, _listBackgroundTf,false);
+                card.SetData(bgInfo,bgInfo.icon,EventID.ApplyBackground);
+            }
         }
     }
 }

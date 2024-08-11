@@ -25,6 +25,6 @@ public class CardChangeItem : CardBase,IOnClickNoVariable
     
     public void OnClick()
     {
-        EventDispatcher.Instance.PostEvent(_eventID,_obj);
+        this.PostEvent(_eventID,_obj);
     }
 }

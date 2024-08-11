@@ -120,7 +120,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8845637167982324676}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4320653891446536033}
+        m_TargetAssemblyTypeName: _Game._Scripts.UI.Layer.MenuLayer.CardSelectionItem,
+          Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3880535034998612589
 GameObject:
   m_ObjectHideFlags: 0
