@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45781565316a4ab6ba903773d632c076, type: 3}
+  m_Name: BackgroundSO
+  m_EditorClassIdentifier: 
+  backgrounds:
+  - icon: {fileID: 21300000, guid: 38ff5f22698efec4aa1e3b438eb8bced, type: 3}
+    sprite: {fileID: 21300000, guid: 38ff5f22698efec4aa1e3b438eb8bced, type: 3}
+    resolution: {x: 1920, y: 1080}
+  - icon: {fileID: 21300000, guid: afd5d4ebb1ce46646b32d05812d5a033, type: 3}
+    sprite: {fileID: 21300000, guid: afd5d4ebb1ce46646b32d05812d5a033, type: 3}
+    resolution: {x: 1200, y: 900}
+  - icon: {fileID: 21300000, guid: ae85447fffb6eda4382e60ebf6e5d30f, type: 3}
+    sprite: {fileID: 21300000, guid: ae85447fffb6eda4382e60ebf6e5d30f, type: 3}
+    resolution: {x: 1200, y: 700}
+  - icon: {fileID: 21300000, guid: 8278583e314916440866648ead5817bf, type: 3}
+    sprite: {fileID: 21300000, guid: 8278583e314916440866648ead5817bf, type: 3}
+    resolution: {x: 1080, y: 540}

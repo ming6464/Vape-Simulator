@@ -181,6 +181,11 @@ public enum EventID
 {
     None = 0,
     ApplyObject,
+    ApplyBackground,
+    LoadSceneByName,
+    LoadSceneByIndex,
+    LoadSceneMain,
+    LoadSceneStart,
 }
 
 #endregion

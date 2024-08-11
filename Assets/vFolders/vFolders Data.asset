@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb9c12a8c6c949f7af83a3d238359d0, type: 3}
+  m_Name: vFolders Data
+  m_EditorClassIdentifier: 
+  folderDatas_byGuid:
+    keys:
+    - c1d4f9bd170e8cd4c91d45dc42f782d7
+    - da13508696dd3824693f5b5e01ea63d1
+    - 7705f0fdc4a5a404cad31e97c2efd966
+    - 91ae0a5a3806f3c4d983f4bc52c79b6e
+    - 437ea26a5f8f7fd49bd8b4cf766d8421
+    - 49927a0f4d327be449f3b8b571b45e3e
+    - b1c8c952220372b4a8f97e8fbdb52692
+    - 4f265dac18a29c74d973b6c14825d2d6
+    - 849665bd60a229942b26e71f9300b9d8
+    - a97f371b0d1b60247a1ea4a50c80fd80
+    - 65cd849353e01fb44b21d02a424da400
+    values:
+    - colorIndex: 0
+      iconNameOrGuid: ScriptableObject Icon
+    - colorIndex: 8
+      iconNameOrGuid: Shader Icon
+    - colorIndex: 0
+      iconNameOrGuid: Prefab Icon
+    - colorIndex: 0
+      iconNameOrGuid: Texture Icon
+    - colorIndex: 1
+      iconNameOrGuid: 
+    - colorIndex: 0
+      iconNameOrGuid: none
+    - colorIndex: 0
+      iconNameOrGuid: none
+    - colorIndex: 0
+      iconNameOrGuid: SceneAsset Icon
+    - colorIndex: 0
+      iconNameOrGuid: cs Script Icon
+    - colorIndex: 0
+      iconNameOrGuid: Shader Icon
+    - colorIndex: 0
+      iconNameOrGuid: RawImage Icon

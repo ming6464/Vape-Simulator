@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace _Game._Scripts.Data
 {
-    [CreateAssetMenu(menuName = "SimulateObjSO")]
+    [CreateAssetMenu(menuName = "SimulateObjectSO",fileName = "SimulateObjectSO",order = 0)]
     public class SimulateObjectSO : ScriptableObject
     {
         public SimulateObjectInfo[] objectInfos;

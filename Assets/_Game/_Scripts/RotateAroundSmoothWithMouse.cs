@@ -27,6 +27,8 @@ namespace _Game._Scripts
             }
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
+        [Obsolete("Obsolete")]
         protected override void OnRotate()
         {
             if (!_isCanRotate)
@@ -79,6 +81,7 @@ namespace _Game._Scripts
             }
         }
         
+        [Obsolete("Obsolete")]
         private void RotateAround(Transform objTfRotate, Vector3 axis, float angle)
         {
             objTfRotate.RotateAround(axis,angle);
