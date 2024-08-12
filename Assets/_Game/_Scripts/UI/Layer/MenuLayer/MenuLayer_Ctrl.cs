@@ -7,6 +7,7 @@ namespace _Game._Scripts.UI.Layer.MenuLayer
     public class MenuLayer_Ctrl : LayerBase
     {
         [Tab("Menu Layer")]
+        public bool check;
         [Foldout("Reference")]
         [SerializeField]
         private Transform _parentCardSelection;
@@ -19,9 +20,41 @@ namespace _Game._Scripts.UI.Layer.MenuLayer
         private SimulateObjectInfo[] _scifiGunData;
         private SimulateObjectInfo[] _lightSaberData;
 
+        protected override void Awake()
+        {
+            base.Awake();
+        }
+
         protected override void OnEnable()
         {
             this.RegisterListener(EventID.OpenMenuSelectionLayer,OpenMenuSelection);
+        }
+
+        protected override void Update()
+        {
+            base.Update();
+
+            if (!_parentCardSelection)
+            {
+                Debug.Log("Null");
+            }
+            else
+            {
+                Debug.Log("Not Null");
+            }
+        }
+
+        protected override void LateUpdate()
+        {
+            base.LateUpdate();
+            if (!_parentCardSelection)
+            {
+                Debug.Log("Null");
+            }
+            else
+            {
+                Debug.Log("Not Null");
+            }
         }
 
         private void OpenMenuSelection(object obj)
@@ -63,6 +96,11 @@ namespace _Game._Scripts.UI.Layer.MenuLayer
 
         private void InitData(SimulateObjectInfo[] simulateObjectInfos)
         {
+            if (check)
+            {
+                return;
+            }
+            
             RemoveAllCard();
 
             for (int i = 0; i < simulateObjectInfos.Length; i++)
@@ -76,9 +114,17 @@ namespace _Game._Scripts.UI.Layer.MenuLayer
 
         private void RemoveAllCard()
         {
+            if (!_parentCardSelection)
+            {
+                Debug.Log("Null");
+            }
+            else
+            {
+                Debug.Log("Not Null");
+            }
             foreach (Transform tfChild in _parentCardSelection)
             {
-                DestroyImmediate(tfChild.gameObject);
+                Destroy(tfChild.gameObject);
             }
         }
     }

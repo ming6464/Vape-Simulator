@@ -1,0 +1,209 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8954906cac5624daa0c6acdd895593, type: 3}
+  m_Name: Manul Toolbar
+  m_EditorClassIdentifier: 
+  settingsExpanded: 1
+  currentVersion: 1.3.2
+  settings:
+    leftBeginOffset: 10
+    rightBeginOffset: -5
+    betweenOffset: 5
+    defaultButtonStyle: 18
+    defaultToggleStyle: 37
+    defaultLabelStyle: 13
+    defaultPopupStyle: 29
+    showConsoleMessages: 1
+    disableToolbar: 0
+    mutedColor: {r: 1, g: 1, b: 1, a: 0.6}
+    overrideLeftType: 0
+    SOForLeftSide: {fileID: 0}
+    SOSetForLeftSide: {fileID: 0}
+    overrideRightType: 0
+    SOForRightSide: {fileID: 0}
+    SOSetForRightSide: {fileID: 0}
+  leftSide: []
+  rightSide:
+  - isActive: 1
+    isExpanded: 1
+    type: 1
+    labelType: 0
+    labelText: Play Game
+    labelIcon: {fileID: 0}
+    useStyle: 0
+    editorStyle: 0
+    styleName: 
+    skin: {fileID: 0}
+    useWidth: 0
+    width: 85.07
+    useColors: 0
+    globalColor: {r: 1, g: 1, b: 1, a: 1}
+    contentColor: {r: 1, g: 1, b: 1, a: 1}
+    backgroundColor: {r: 1, g: 1, b: 1, a: 1}
+    useTooltip: 1
+    linesCount: 0
+    labelTooltip: Go to loading scene and playgame
+    togglePrefName: 
+    actions:
+    - mouseButton: 0
+      keyboardButton: 0
+      buttonType: 1
+      buttonObject: {fileID: 102900000, guid: 9f5349c258ae26c4a95522d2506cc3a9, type: 3}
+      objectName: 
+      className: 
+      methodName: 
+    - mouseButton: 0
+      keyboardButton: 0
+      buttonType: 10
+      buttonObject: {fileID: 102900000, guid: 9f5349c258ae26c4a95522d2506cc3a9, type: 3}
+      objectName: 
+      className: 
+      methodName: 
+    showNameField: 0
+    intNamesList:
+    - itemName: 1
+      itemIndex: 0
+    - itemName: 2
+      itemIndex: 1
+  - isActive: 1
+    isExpanded: 0
+    type: 1
+    labelType: 0
+    labelText: Loading Scene
+    labelIcon: {fileID: 0}
+    useStyle: 0
+    editorStyle: 0
+    styleName: 
+    skin: {fileID: 0}
+    useWidth: 0
+    width: 85.07
+    useColors: 0
+    globalColor: {r: 1, g: 1, b: 1, a: 1}
+    contentColor: {r: 1, g: 1, b: 1, a: 1}
+    backgroundColor: {r: 1, g: 1, b: 1, a: 1}
+    useTooltip: 1
+    linesCount: 0
+    labelTooltip: Go to main scene
+    togglePrefName: 
+    actions:
+    - mouseButton: 0
+      keyboardButton: 0
+      buttonType: 1
+      buttonObject: {fileID: 102900000, guid: 9f5349c258ae26c4a95522d2506cc3a9, type: 3}
+      objectName: 
+      className: 
+      methodName: 
+    showNameField: 0
+    intNamesList: []
+  - isActive: 1
+    isExpanded: 1
+    type: 1
+    labelType: 0
+    labelText: Start Scene
+    labelIcon: {fileID: 0}
+    useStyle: 0
+    editorStyle: 0
+    styleName: 
+    skin: {fileID: 0}
+    useWidth: 0
+    width: 85.07
+    useColors: 0
+    globalColor: {r: 1, g: 1, b: 1, a: 1}
+    contentColor: {r: 1, g: 1, b: 1, a: 1}
+    backgroundColor: {r: 1, g: 1, b: 1, a: 1}
+    useTooltip: 0
+    linesCount: 0
+    labelTooltip: 
+    togglePrefName: 
+    actions:
+    - mouseButton: 0
+      keyboardButton: 0
+      buttonType: 1
+      buttonObject: {fileID: 102900000, guid: 424ffd5a3b881694a9a02b364d70d6b7, type: 3}
+      objectName: 
+      className: 
+      methodName: 
+    showNameField: 0
+    intNamesList:
+    - itemName: 1
+      itemIndex: 0
+    - itemName: 2
+      itemIndex: 1
+  - isActive: 1
+    isExpanded: 1
+    type: 1
+    labelType: 0
+    labelText: Main Scene
+    labelIcon: {fileID: 0}
+    useStyle: 0
+    editorStyle: 0
+    styleName: 
+    skin: {fileID: 0}
+    useWidth: 0
+    width: 85.07
+    useColors: 0
+    globalColor: {r: 1, g: 1, b: 1, a: 1}
+    contentColor: {r: 1, g: 1, b: 1, a: 1}
+    backgroundColor: {r: 1, g: 1, b: 1, a: 1}
+    useTooltip: 1
+    linesCount: 0
+    labelTooltip: Go to main scene
+    togglePrefName: 
+    actions:
+    - mouseButton: 0
+      keyboardButton: 0
+      buttonType: 1
+      buttonObject: {fileID: 102900000, guid: 722a2cd43750d88428f177ea8ac1f4d0, type: 3}
+      objectName: 
+      className: 
+      methodName: 
+    showNameField: 0
+    intNamesList:
+    - itemName: 1
+      itemIndex: 0
+    - itemName: 2
+      itemIndex: 1
+  - isActive: 1
+    isExpanded: 1
+    type: 1
+    labelType: 0
+    labelText: DontDestroy
+    labelIcon: {fileID: 0}
+    useStyle: 0
+    editorStyle: 0
+    styleName: 
+    skin: {fileID: 0}
+    useWidth: 0
+    width: 85.07
+    useColors: 0
+    globalColor: {r: 1, g: 1, b: 1, a: 1}
+    contentColor: {r: 1, g: 1, b: 1, a: 1}
+    backgroundColor: {r: 1, g: 1, b: 1, a: 1}
+    useTooltip: 0
+    linesCount: 0
+    labelTooltip: Go to main scene
+    togglePrefName: 
+    actions:
+    - mouseButton: 0
+      keyboardButton: 0
+      buttonType: 1
+      buttonObject: {fileID: 1453852128276242408, guid: f22f803819d241341bde6f38d7ade703,
+        type: 3}
+      objectName: 
+      className: 
+      methodName: 
+    showNameField: 0
+    intNamesList:
+    - itemName: 1
+      itemIndex: 0
+    - itemName: 2
+      itemIndex: 1

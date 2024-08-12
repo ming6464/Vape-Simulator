@@ -30,9 +30,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3912115740682735716}
   - {fileID: 8206716110951880237}
   - {fileID: 3465316009498223043}
-  - {fileID: 3912115740682735716}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7362012407365806837
@@ -179,10 +179,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38822bca69424a019c07a5e4f336eca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vapeSo: {fileID: 0}
-  _machineGunSo: {fileID: 0}
-  _scifiGun: {fileID: 0}
-  _lightSaber: {fileID: 0}
+  _vapeSo: {fileID: 11400000, guid: 1c96ccc5ea5aa1d4b9e0eea597d68a40, type: 2}
+  _machineGunSo: {fileID: 11400000, guid: 577e372b19a662a41bee8be219b2509a, type: 2}
+  _scifiGun: {fileID: 11400000, guid: 728f5994c3aaed1439806199084a14d7, type: 2}
+  _lightSaber: {fileID: 11400000, guid: ff98d0ad8d784e241b289118bc06b164, type: 2}
   _backgroundSo: {fileID: 11400000, guid: 12b1f9bae2ee102408ee9461de928837, type: 2}
   _mainSceneName: MainScene
   _startSceneName: StartScene

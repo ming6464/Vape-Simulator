@@ -37,14 +37,22 @@ namespace _Game._Scripts
         [SerializeField]
         private string _loadingSceneName;
 
+        private bool _isLoadDataShare;
+        
         public override void Awake()
         {
             base.Awake();
+        }
+
+        private void OnEnable()
+        {
             LoadDataShare();
         }
 
         private void LoadDataShare()
         {
+            if(_isLoadDataShare) return;
+            _isLoadDataShare = true;
             DataShare.Instance.SetData(DataShareKey.VapeData,_vapeSo.objectInfos);
             DataShare.Instance.SetData(DataShareKey.MachineGunData,_machineGunSo.objectInfos);
             DataShare.Instance.SetData(DataShareKey.ScifiGunData,_scifiGun.objectInfos);

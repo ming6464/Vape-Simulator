@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using VInspector;
 
-public class ShowHideButton : ButtonBase
+public class ToggleShowHide : ButtonBase
 {
     [Tab("Show Hide Button")]
     public bool currentState;
