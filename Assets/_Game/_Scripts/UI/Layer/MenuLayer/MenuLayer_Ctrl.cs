@@ -30,6 +30,23 @@ namespace _Game._Scripts.UI.Layer.MenuLayer
             this.RegisterListener(EventID.OpenMenuSelectionLayer,OpenMenuSelection);
         }
 
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            this.RemoveListener(EventID.OpenMenuSelectionLayer,OpenMenuSelection);
+        }
+
+        protected override void Update()
+        {
+            base.Update();
+
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                BlackBoard.Instance.SetValue(BlackBoardKEY.SimulationMode,SimulationMode.MachineGun);
+                this.PostEvent(EventID.OpenMenuSelectionLayer);
+            }
+        }
+
         private void OpenMenuSelection(object obj)
         {
             if (!BlackBoard.Instance.TryGetValue(BlackBoardKEY.SimulationMode, out SimulationMode mode))

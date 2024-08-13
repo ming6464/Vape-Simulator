@@ -8,24 +8,7 @@ public enum AxisRotate
 {
     Up,Down,Right,Left,Forward,Backward
 }
-  
-// D
-[Serializable]
-public enum DataShareKey
-{
-    none,
-    SimulationMode,
-    MachineGunData,
-    VapeData,
-    ScifiGunData,
-    LightSaberData,
-    BackgroundData,
-    MainSceneName,
-    StartSceneName,
-    LoadingSceneName,
-    ObjSelectionDefault,
-    DontDestroyPrefab
-}
+
 
 // S
 
@@ -53,5 +36,8 @@ public enum EventID
     OpenSettingLayer,
     OpenMenuSelectionLayer,
     OpenChangeCharacterLayer,
+    OnRotateMode,
+    OnClick,
+    OnHold
 }
 

@@ -11,7 +11,7 @@ namespace _Game._Scripts
         
         //Reference
         protected Transform  _myTf;
-        protected Input_Ctrl _inputCtrl;
+        protected InputInGamePlay_Ctrl inputInGamePlayCtrl;
         //
         protected bool    _hasInput;
         protected Vector3 _rotationAngle;
@@ -23,9 +23,9 @@ namespace _Game._Scripts
 
         protected virtual void Start()
         {
-            if (Input_Ctrl.Instance)
+            if (InputInGamePlay_Ctrl.Instance)
             {
-                _inputCtrl = Input_Ctrl.Instance;
+                inputInGamePlayCtrl = InputInGamePlay_Ctrl.Instance;
                 _hasInput  = true;
             }
         }
@@ -34,7 +34,7 @@ namespace _Game._Scripts
         {
             if (_hasInput)
             {
-                var subtractMousePosition = _inputCtrl.mousePosition - _inputCtrl.passMousePosition;
+                var subtractMousePosition = inputInGamePlayCtrl.MousePosition - inputInGamePlayCtrl.PassMousePosition;
 
                 if (subtractMousePosition.x != 0 || subtractMousePosition.y != 0)
                 {
