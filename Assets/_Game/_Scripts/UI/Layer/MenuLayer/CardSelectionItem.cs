@@ -1,3 +1,4 @@
+using BlackBoardSystem;
 using UnityEngine;
 using UnityEngine.UI;
 using VInspector;
@@ -11,17 +12,17 @@ namespace _Game._Scripts.UI.Layer.MenuLayer
         [SerializeField]
         private Image _iconImage;
 
-        private int _idObject;
-
-        public void SetData(Sprite icon, int id)
+        private GameObject _gObjData;
+        
+        public void SetData(Sprite icon, GameObject gObjData)
         {
-            _idObject         = id;
+            _gObjData         = gObjData;
             _iconImage.sprite = icon;
         }
 
         public void OnClick()
         {
-            this.SetData(DataShareKey.IdObjSelectionDefault,_idObject);
+            BlackBoard.Instance.SetValue(BlackBoardKEY.ObjSelectionDefault,_gObjData);
             this.PostEvent(EventID.LoadSceneMain);
         }
     }

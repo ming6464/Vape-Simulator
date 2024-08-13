@@ -23,7 +23,8 @@ public enum DataShareKey
     MainSceneName,
     StartSceneName,
     LoadingSceneName,
-    IdObjSelectionDefault
+    ObjSelectionDefault,
+    DontDestroyPrefab
 }
 
 // S

@@ -1,6 +1,7 @@
 using System;
 using _Game._Scripts.Data;
 using _Game._Scripts.Support;
+using BlackBoardSystem;
 using UnityEditor;
 using UnityEngine;
 using VInspector;
@@ -27,6 +28,10 @@ namespace _Game._Scripts
         [SerializeField]
         private BackgroundSO _backgroundSo;
 
+        [Foldout("Asset")]
+        [SerializeField]
+        private GameObject _dontDestroyPrefab;
+        
         [Foldout("Define")]
         [SerializeField]
         private string _mainSceneName;
@@ -53,14 +58,15 @@ namespace _Game._Scripts
         {
             if(_isLoadDataShare) return;
             _isLoadDataShare = true;
-            DataShare.Instance.SetData(DataShareKey.VapeData,_vapeSo.objectInfos);
-            DataShare.Instance.SetData(DataShareKey.MachineGunData,_machineGunSo.objectInfos);
-            DataShare.Instance.SetData(DataShareKey.ScifiGunData,_scifiGun.objectInfos);
-            DataShare.Instance.SetData(DataShareKey.LightSaberData,_lightSaber.objectInfos);
-            DataShare.Instance.SetData(DataShareKey.BackgroundData,_backgroundSo.backgrounds);
-            DataShare.Instance.SetData(DataShareKey.MainSceneName,_mainSceneName);
-            DataShare.Instance.SetData(DataShareKey.StartSceneName,_startSceneName);
-            DataShare.Instance.SetData(DataShareKey.LoadingSceneName,_loadingSceneName);
+            BlackBoard.Instance.SetValue(BlackBoardKEY.VapeData,_vapeSo.objectInfos);
+            BlackBoard.Instance.SetValue(BlackBoardKEY.MachineGunData,_machineGunSo.objectInfos);
+            BlackBoard.Instance.SetValue(BlackBoardKEY.ScifiGunData,_scifiGun.objectInfos);
+            BlackBoard.Instance.SetValue(BlackBoardKEY.LightSaberData,_lightSaber.objectInfos);
+            BlackBoard.Instance.SetValue(BlackBoardKEY.BackgroundData,_backgroundSo.backgrounds);
+            BlackBoard.Instance.SetValue(BlackBoardKEY.MainSceneName,_mainSceneName);
+            BlackBoard.Instance.SetValue(BlackBoardKEY.StartSceneName,_startSceneName);
+            BlackBoard.Instance.SetValue(BlackBoardKEY.LoadingSceneName,_loadingSceneName);
+            BlackBoard.Instance.SetValue(BlackBoardKEY.DontDestroyPrefab,_dontDestroyPrefab);
         }
     }
     

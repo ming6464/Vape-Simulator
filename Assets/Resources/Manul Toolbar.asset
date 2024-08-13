@@ -31,10 +31,45 @@ MonoBehaviour:
     overrideRightType: 0
     SOForRightSide: {fileID: 0}
     SOSetForRightSide: {fileID: 0}
-  leftSide: []
-  rightSide:
+  leftSide:
   - isActive: 1
     isExpanded: 1
+    type: 1
+    labelType: 0
+    labelText: DontDestroy
+    labelIcon: {fileID: 0}
+    useStyle: 0
+    editorStyle: 0
+    styleName: 
+    skin: {fileID: 0}
+    useWidth: 0
+    width: 85.07
+    useColors: 0
+    globalColor: {r: 1, g: 1, b: 1, a: 1}
+    contentColor: {r: 1, g: 1, b: 1, a: 1}
+    backgroundColor: {r: 1, g: 1, b: 1, a: 1}
+    useTooltip: 0
+    linesCount: 0
+    labelTooltip: Go to main scene
+    togglePrefName: 
+    actions:
+    - mouseButton: 0
+      keyboardButton: 0
+      buttonType: 1
+      buttonObject: {fileID: 1453852128276242408, guid: f22f803819d241341bde6f38d7ade703,
+        type: 3}
+      objectName: 
+      className: 
+      methodName: 
+    showNameField: 0
+    intNamesList:
+    - itemName: 1
+      itemIndex: 0
+    - itemName: 2
+      itemIndex: 1
+  rightSide:
+  - isActive: 1
+    isExpanded: 0
     type: 1
     labelType: 0
     labelText: Play Game
@@ -105,7 +140,7 @@ MonoBehaviour:
     showNameField: 0
     intNamesList: []
   - isActive: 1
-    isExpanded: 1
+    isExpanded: 0
     type: 1
     labelType: 0
     labelText: Start Scene
@@ -139,7 +174,7 @@ MonoBehaviour:
     - itemName: 2
       itemIndex: 1
   - isActive: 1
-    isExpanded: 1
+    isExpanded: 0
     type: 1
     labelType: 0
     labelText: Main Scene
@@ -163,41 +198,6 @@ MonoBehaviour:
       keyboardButton: 0
       buttonType: 1
       buttonObject: {fileID: 102900000, guid: 722a2cd43750d88428f177ea8ac1f4d0, type: 3}
-      objectName: 
-      className: 
-      methodName: 
-    showNameField: 0
-    intNamesList:
-    - itemName: 1
-      itemIndex: 0
-    - itemName: 2
-      itemIndex: 1
-  - isActive: 1
-    isExpanded: 1
-    type: 1
-    labelType: 0
-    labelText: DontDestroy
-    labelIcon: {fileID: 0}
-    useStyle: 0
-    editorStyle: 0
-    styleName: 
-    skin: {fileID: 0}
-    useWidth: 0
-    width: 85.07
-    useColors: 0
-    globalColor: {r: 1, g: 1, b: 1, a: 1}
-    contentColor: {r: 1, g: 1, b: 1, a: 1}
-    backgroundColor: {r: 1, g: 1, b: 1, a: 1}
-    useTooltip: 0
-    linesCount: 0
-    labelTooltip: Go to main scene
-    togglePrefName: 
-    actions:
-    - mouseButton: 0
-      keyboardButton: 0
-      buttonType: 1
-      buttonObject: {fileID: 1453852128276242408, guid: f22f803819d241341bde6f38d7ade703,
-        type: 3}
       objectName: 
       className: 
       methodName: 

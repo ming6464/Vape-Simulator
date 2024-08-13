@@ -1,8 +1,9 @@
 using _Game._Scripts.Data;
+using BlackBoardSystem;
 using UnityEngine;
 using VInspector;
 
-public class WeaponLayer_Ctrl : LayerBase
+public class MachineGunLayer_Ctrl : LayerBase
 {
     [Foldout("Reference")]
     [SerializeField]
@@ -25,7 +26,7 @@ public class WeaponLayer_Ctrl : LayerBase
 
     private void Init()
     {
-        if (this.TryGetData(DataShareKey.MachineGunData, out SimulateObjectInfo[] weaponInfos))
+        if (BlackBoard.Instance.TryGetValue(BlackBoardKEY.MachineGunData, out SimulateObjectInfo[] weaponInfos))
         {
             foreach (var weaponInfo in weaponInfos)
             {
@@ -33,15 +34,16 @@ public class WeaponLayer_Ctrl : LayerBase
                 card.SetData(weaponInfo.prefab,weaponInfo.icon,EventID.ApplyObject);
                 card.name = weaponInfo.name;
             }
-        }
-
-        if (this.TryGetData(DataShareKey.BackgroundData, out BackgroundInfo[] backgroundInfos))
-        {
-            foreach (var bgInfo in backgroundInfos)
+            
+            if (BlackBoard.Instance.TryGetValue(BlackBoardKEY.BackgroundData, out BackgroundInfo[] backgroundInfos))
             {
-                var card = Instantiate(_backgroundCardPrefab, _listBackgroundTf,false);
-                card.SetData(bgInfo,bgInfo.icon,EventID.ApplyBackground);
+                foreach (var bgInfo in backgroundInfos)
+                {
+                    var card = Instantiate(_backgroundCardPrefab, _listBackgroundTf,false);
+                    card.SetData(bgInfo,bgInfo.icon,EventID.ApplyBackground);
+                }
             }
+            
         }
     }
 }

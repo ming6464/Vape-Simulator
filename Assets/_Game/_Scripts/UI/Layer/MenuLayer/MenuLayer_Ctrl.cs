@@ -1,4 +1,5 @@
 using System;
+using BlackBoardSystem;
 using UnityEngine;
 using VInspector;
 
@@ -6,12 +7,11 @@ namespace _Game._Scripts.UI.Layer.MenuLayer
 {
     public class MenuLayer_Ctrl : LayerBase
     {
-        [Tab("Menu Layer")]
-        public bool check;
-        [Foldout("Reference")]
+        // [Tab("Menu Layer")]
+        // [Foldout("Reference")]
         [SerializeField]
-        private Transform _parentCardSelection;
-        [Foldout("Asset")]
+        private GameObject _parentCardSelection;
+        // [Foldout("Asset")]
         [SerializeField]
         private CardSelectionItem _cardPrefab;
 
@@ -30,36 +30,9 @@ namespace _Game._Scripts.UI.Layer.MenuLayer
             this.RegisterListener(EventID.OpenMenuSelectionLayer,OpenMenuSelection);
         }
 
-        protected override void Update()
-        {
-            base.Update();
-
-            if (!_parentCardSelection)
-            {
-                Debug.Log("Null");
-            }
-            else
-            {
-                Debug.Log("Not Null");
-            }
-        }
-
-        protected override void LateUpdate()
-        {
-            base.LateUpdate();
-            if (!_parentCardSelection)
-            {
-                Debug.Log("Null");
-            }
-            else
-            {
-                Debug.Log("Not Null");
-            }
-        }
-
         private void OpenMenuSelection(object obj)
         {
-            if (!this.TryGetData(DataShareKey.SimulationMode, out SimulationMode mode))
+            if (!BlackBoard.Instance.TryGetValue(BlackBoardKEY.SimulationMode, out SimulationMode mode))
             {
                 return;
             }
@@ -68,19 +41,19 @@ namespace _Game._Scripts.UI.Layer.MenuLayer
             switch (mode)
             { 
                 case SimulationMode.Vape:
-                    _vapeGunData ??= this.GetData<SimulateObjectInfo[]>(DataShareKey.VapeData);
+                    _vapeGunData ??= BlackBoard.Instance.GetValue<SimulateObjectInfo[]>(BlackBoardKEY.VapeData);
                     data         =   _vapeGunData;
                     break;
                 case SimulationMode.MachineGun:
-                    _machineGunData ??= this.GetData<SimulateObjectInfo[]>(DataShareKey.VapeData);
+                    _machineGunData ??= BlackBoard.Instance.GetValue<SimulateObjectInfo[]>(BlackBoardKEY.VapeData);
                     data            =   _machineGunData;
                     break;
                 case SimulationMode.ScifiGun:
-                    _scifiGunData ??= this.GetData<SimulateObjectInfo[]>(DataShareKey.VapeData);
+                    _scifiGunData ??= BlackBoard.Instance.GetValue<SimulateObjectInfo[]>(BlackBoardKEY.VapeData);
                     data          =   _scifiGunData;
                     break;
                 case SimulationMode.LightSaber:
-                    _lightSaberData ??= this.GetData<SimulateObjectInfo[]>(DataShareKey.VapeData);
+                    _lightSaberData ??= BlackBoard.Instance.GetValue<SimulateObjectInfo[]>(BlackBoardKEY.VapeData);
                     data            =   _lightSaberData;
                     break;
                     
@@ -96,33 +69,19 @@ namespace _Game._Scripts.UI.Layer.MenuLayer
 
         private void InitData(SimulateObjectInfo[] simulateObjectInfos)
         {
-            if (check)
-            {
-                return;
-            }
-            
             RemoveAllCard();
 
-            for (int i = 0; i < simulateObjectInfos.Length; i++)
+            foreach (var simulateObjInfo in simulateObjectInfos)
             {
-                var simulateObjInfo = simulateObjectInfos[i];
-                var cardNew         = Instantiate(_cardPrefab, _parentCardSelection, false);
-                cardNew.SetData(simulateObjInfo.icon,i);
+                var cardNew = Instantiate(_cardPrefab, _parentCardSelection.transform, false);
+                cardNew.SetData(simulateObjInfo.icon,simulateObjInfo.prefab);
             }
             _content.gameObject.SetActive(true);
         }
 
         private void RemoveAllCard()
         {
-            if (!_parentCardSelection)
-            {
-                Debug.Log("Null");
-            }
-            else
-            {
-                Debug.Log("Not Null");
-            }
-            foreach (Transform tfChild in _parentCardSelection)
+            foreach (Transform tfChild in _parentCardSelection.transform)
             {
                 Destroy(tfChild.gameObject);
             }

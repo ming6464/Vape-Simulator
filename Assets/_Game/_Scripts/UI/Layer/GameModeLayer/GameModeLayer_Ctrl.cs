@@ -1,5 +1,7 @@
 using System;
 using _Game._Scripts.Support;
+using BlackBoardSystem;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 using VInspector;
@@ -30,7 +32,7 @@ namespace _Game._Scripts.UI.Layer.GameModeLayer
 
         private void LoadMode(SimulationMode mode)
         {
-            DataShare.Instance.SetData(DataShareKey.SimulationMode,mode);
+            BlackBoard.Instance.SetValue(BlackBoardKEY.SimulationMode,mode);
             this.PostEvent(EventID.OpenMenuSelectionLayer);
         }
     }

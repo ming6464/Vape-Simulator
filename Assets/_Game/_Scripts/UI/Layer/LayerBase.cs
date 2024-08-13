@@ -4,7 +4,7 @@ using VInspector;
 
 public class LayerBase : MonoBehaviour
 {
-   [Tab("Base")]
+   // [Tab("Base")]
    [SerializeField]
    protected Transform _content;
    

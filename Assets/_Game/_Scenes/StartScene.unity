@@ -3294,8 +3294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _content: {fileID: 1802313228}
-  check: 0
-  _parentCardSelection: {fileID: 823110138}
+  _parentCardSelection: {fileID: 823110137}
   _cardPrefab: {fileID: -4320653891446536033, guid: 29588471d1957344e8e31b95ca0a6f3e,
     type: 3}
 --- !u!1 &2042542534

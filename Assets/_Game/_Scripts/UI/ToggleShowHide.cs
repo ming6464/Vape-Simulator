@@ -5,7 +5,7 @@ using VInspector;
 
 public class ToggleShowHide : ButtonBase
 {
-    [Tab("Show Hide Button")]
+    [Tab("Show Hide Togglr")]
     public bool currentState;
     [Foldout("Reference")]
     [SerializeField]
