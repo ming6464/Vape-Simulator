@@ -6,7 +6,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SpawnObject : MonoBehaviour
+public class SimulationObject_Ctrl : MonoBehaviour
 {
     //Property
     public  GameObject      currentObject { get; private set; }
@@ -47,7 +47,7 @@ public class SpawnObject : MonoBehaviour
         _parentObj.localRotation = Quaternion.identity;
         var objApply = Instantiate(gObj, _parentObj, true);
         objApply.transform.localPosition = Vector3.zero;
-        objApply.transform.localRotation = quaternion.identity;
+        objApply.transform.localRotation = Quaternion.identity;
         currentObject                    = objApply;
     }
 }

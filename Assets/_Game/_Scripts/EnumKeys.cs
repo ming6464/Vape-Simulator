@@ -9,9 +9,17 @@ public enum AxisRotate
     Up,Down,Right,Left,Forward,Backward
 }
 
+[Serializable]
+public enum FireType
+{
+    single,
+    burst,
+    auto,
+    shake
+}
+
 
 // S
-
 [Serializable]
 public enum SimulationMode
 {
