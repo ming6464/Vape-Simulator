@@ -10,6 +10,16 @@ public enum AxisRotate
 }
 
 [Serializable]
+public enum AbilityMode
+{
+    Single,
+    Burst,
+    Auto,
+    Shake
+}
+
+// F
+[Serializable]
 public enum FireType
 {
     single,
@@ -45,7 +55,9 @@ public enum EventID
     OpenMenuSelectionLayer,
     OpenChangeCharacterLayer,
     OnRotateMode,
-    OnClick,
-    OnHold
+    OnActionProjector,
+    OnChangeAbilityMode,
+    OnSelectionSimulationObject,
+    OnSelectionBackground,
 }
 

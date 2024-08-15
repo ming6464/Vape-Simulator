@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace _Game._Scripts.Data
 {
-    [CreateAssetMenu(menuName = "BackgroundSO",fileName = "BackgroundSO",order = 0)]
+    [CreateAssetMenu(menuName = "SO/BackgroundSO",fileName = "BackgroundSO",order = 0)]
     public class BackgroundSO : ScriptableObject
     {
         public BackgroundInfo[] backgrounds;

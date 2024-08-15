@@ -1,19 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using BlackBoardSystem;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class SimulationObject_Ctrl : MonoBehaviour
+public class SpawnObject : MonoBehaviour
 {
     //Property
     public  GameObject      currentObject { get; private set; }
     [SerializeField]
     private Transform _parentObj;
-
-    private float _timeHold;
     
     private void OnEnable()
     {
@@ -26,19 +19,19 @@ public class SimulationObject_Ctrl : MonoBehaviour
         this.RemoveListener(EventID.ApplyObject,ApplyObj);
     }
     
-    private void Start()
-    {
-        if (BlackBoard.Instance.TryGetValue(BlackBoardKEY.ObjSelectionDefault, out GameObject gObj))
-        {
-            ApplyObj(gObj);
-        }
-        
-    }
 
     private void ApplyObj(object obj)
     {
-        var gObj = obj as GameObject;
-
+        if (obj is not SimulationObjectInfo simulationObjectInfo)
+        {
+            Debug.LogError("Simulation object info bị null");
+            return;
+        }
+        
+        BlackBoard.Instance.SetValue(BlackBoardKEY.ObjectSelectionUsing, simulationObjectInfo);
+        
+        var gObj = simulationObjectInfo.prefab;
+        
         if (currentObject)
         {
             DestroyImmediate(currentObject);

@@ -15,10 +15,10 @@ namespace _Game._Scripts.UI.Layer.MenuLayer
         [SerializeField]
         private CardSelectionItem _cardPrefab;
 
-        private SimulateObjectInfo[] _vapeGunData;
-        private SimulateObjectInfo[] _machineGunData;
-        private SimulateObjectInfo[] _scifiGunData;
-        private SimulateObjectInfo[] _lightSaberData;
+        private SimulationObjectInfo[] _vapeGunData;
+        private SimulationObjectInfo[] _machineGunData;
+        private SimulationObjectInfo[] _scifiGunData;
+        private SimulationObjectInfo[]   _lightSaberData;
 
         protected override void Awake()
         {
@@ -54,23 +54,23 @@ namespace _Game._Scripts.UI.Layer.MenuLayer
                 return;
             }
 
-            SimulateObjectInfo[] data = null;
+            SimulationObjectInfo[] data = null;
             switch (mode)
             { 
                 case SimulationMode.Vape:
-                    _vapeGunData ??= BlackBoard.Instance.GetValue<SimulateObjectInfo[]>(BlackBoardKEY.VapeData);
+                    _vapeGunData ??= BlackBoard.Instance.GetValue<SimulationObjectInfo[]>(BlackBoardKEY.VapeData);
                     data         =   _vapeGunData;
                     break;
                 case SimulationMode.MachineGun:
-                    _machineGunData ??= BlackBoard.Instance.GetValue<SimulateObjectInfo[]>(BlackBoardKEY.VapeData);
+                    _machineGunData ??= BlackBoard.Instance.GetValue<SimulationObjectInfo[]>(BlackBoardKEY.MachineGunData);
                     data            =   _machineGunData;
                     break;
                 case SimulationMode.ScifiGun:
-                    _scifiGunData ??= BlackBoard.Instance.GetValue<SimulateObjectInfo[]>(BlackBoardKEY.VapeData);
+                    _scifiGunData ??= BlackBoard.Instance.GetValue<SimulationObjectInfo[]>(BlackBoardKEY.ScifiGunData);
                     data          =   _scifiGunData;
                     break;
                 case SimulationMode.LightSaber:
-                    _lightSaberData ??= BlackBoard.Instance.GetValue<SimulateObjectInfo[]>(BlackBoardKEY.VapeData);
+                    _lightSaberData ??= BlackBoard.Instance.GetValue<SimulationObjectInfo[]>(BlackBoardKEY.LightSaberData);
                     data            =   _lightSaberData;
                     break;
                     
@@ -84,14 +84,15 @@ namespace _Game._Scripts.UI.Layer.MenuLayer
             InitData(data);
         }
 
-        private void InitData(SimulateObjectInfo[] simulateObjectInfos)
+        private void InitData(SimulationObjectInfo[] simulateObjectInfos)
         {
             RemoveAllCard();
 
-            foreach (var simulateObjInfo in simulateObjectInfos)
+            for (int i = 0; i < simulateObjectInfos.Length; i++)
             {
-                var cardNew = Instantiate(_cardPrefab, _parentCardSelection.transform, false);
-                cardNew.SetData(simulateObjInfo.icon,simulateObjInfo.prefab);
+                var simulateObjInfo = simulateObjectInfos[i];
+                var cardNew         = Instantiate(_cardPrefab, _parentCardSelection.transform, false);
+                cardNew.SetData(simulateObjInfo.icon,i);
             }
             _content.gameObject.SetActive(true);
         }

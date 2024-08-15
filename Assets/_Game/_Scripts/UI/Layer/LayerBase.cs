@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using VInspector;
 
-public class LayerBase : MonoBehaviour
+public abstract class LayerBase : MonoBehaviour
 {
    // [Tab("Base")]
    [SerializeField]
@@ -14,11 +14,12 @@ public class LayerBase : MonoBehaviour
 
    protected virtual void OnEnable()
    {
-      
-   }
 
+   }
+   
    protected virtual void OnDisable()
    {
+
    }
 
    protected virtual void Start()

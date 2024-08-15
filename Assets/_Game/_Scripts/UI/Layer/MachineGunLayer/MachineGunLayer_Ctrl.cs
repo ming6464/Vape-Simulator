@@ -1,9 +1,11 @@
+using System;
 using _Game._Scripts.Data;
+using _Game._Scripts.UI.Layer;
 using BlackBoardSystem;
 using UnityEngine;
 using VInspector;
 
-public class MachineGunLayer_Ctrl : LayerBase
+public class MachineGunLayer_Ctrl : LayerBaseInGame
 {
     [Foldout("Reference")]
     [SerializeField]
@@ -18,7 +20,11 @@ public class MachineGunLayer_Ctrl : LayerBase
 
     [SerializeField]
     private CardChangeItem _backgroundCardPrefab;
+
     [EndFoldout]
+    private SimulationObjectInfo[] _simulationObjectInfos;
+    private BackgroundInfo[]       _backgroundInfos;
+
     protected override void Start()
     {
         Init();
@@ -26,24 +32,66 @@ public class MachineGunLayer_Ctrl : LayerBase
 
     private void Init()
     {
-        if (BlackBoard.Instance.TryGetValue(BlackBoardKEY.MachineGunData, out SimulateObjectInfo[] weaponInfos))
+        //Init list
+        if (BlackBoard.Instance.TryGetValue(BlackBoardKEY.MachineGunData, out _simulationObjectInfos))
         {
-            foreach (var weaponInfo in weaponInfos)
-            {
-                var card = Instantiate(_weaponCardPrefab, _listWeaponTf,false);
-                card.SetData(weaponInfo.prefab,weaponInfo.icon,EventID.ApplyObject);
-                card.name = weaponInfo.name;
-            }
+
+            var idDefault = BlackBoard.Instance.GetValue<int>(BlackBoardKEY.IdDefaultObjectSelection);
             
-            if (BlackBoard.Instance.TryGetValue(BlackBoardKEY.BackgroundData, out BackgroundInfo[] backgroundInfos))
+            for (var i = 0; i < _simulationObjectInfos.Length; i++)
             {
-                foreach (var bgInfo in backgroundInfos)
+                var weaponInfo = _simulationObjectInfos[i];
+                var card       = Instantiate(_weaponCardPrefab, _listWeaponTf,false);
+                card.SetData(i,weaponInfo.icon,EventID.OnSelectionSimulationObject);
+                card.name = weaponInfo.name;
+
+                if (i == idDefault)
                 {
-                    var card = Instantiate(_backgroundCardPrefab, _listBackgroundTf,false);
-                    card.SetData(bgInfo,bgInfo.icon,EventID.ApplyBackground);
+                    EventDispatcher.Instance.PostEvent(EventID.ApplyObject,weaponInfo);
                 }
             }
-            
+
+            if (!BlackBoard.Instance.TryGetValue(BlackBoardKEY.BackgroundData, out _backgroundInfos))
+            {
+                return;
+            }
+
+            {
+                for(var i = 0; i < _backgroundInfos.Length; i++)
+                {
+                    var bgInfo = _backgroundInfos[i];
+                    var card   = Instantiate(_backgroundCardPrefab, _listBackgroundTf,false);
+                    card.SetData(i,bgInfo.icon,EventID.OnSelectionBackground);
+                }
+            }
+
+        }
+    }
+    
+    protected override void OnSelectionBackground(object obj)
+    {
+        var id = (int)obj;
+        for(var i = 0; i < _backgroundInfos.Length; i++)
+        {
+            if(i != id) continue;
+            EventDispatcher.Instance.PostEvent(EventID.ApplyBackground,_backgroundInfos[i]);
+            break;
+        }
+        
+    }
+
+    protected override void OnSelectionSimulationObject(object obj)
+    {
+        var id = (int)obj;
+        for (var i = 0; i < _simulationObjectInfos.Length; i++)
+        {
+            if (i != id)
+            {
+                continue;
+            }
+
+            EventDispatcher.Instance.PostEvent(EventID.ApplyObject,_simulationObjectInfos[i]);
+            break;
         }
     }
 }

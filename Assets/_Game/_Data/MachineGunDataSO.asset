@@ -9,19 +9,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98540356f610498b928f27b5fc24cde3, type: 3}
-  m_Name: VapeSO 1
+  m_Script: {fileID: 11500000, guid: b8758de78d784859a61cb0d5873fbc19, type: 3}
+  m_Name: MachineGunDataSO
   m_EditorClassIdentifier: 
   objectInfos:
   - name: Capsule
     icon: {fileID: 0}
     prefab: {fileID: 6244967858771628935, guid: 8136cbf272655314d9388010d32921f2,
       type: 3}
+    capacity: 20
+    defaultAbility: 0
+    abilities: 00000000020000000100000003000000
+    cooldown: 1
+    burstCount: 3
+    timeDelay: 0.1
+    shell: {fileID: 0}
   - name: Cube
     icon: {fileID: 0}
     prefab: {fileID: 3757156619880582251, guid: 31f69557191e55349a0f439bfd6b421e,
       type: 3}
+    capacity: 20
+    defaultAbility: 0
+    abilities: 00000000020000000100000003000000
+    cooldown: 1
+    burstCount: 3
+    timeDelay: 0.1
+    shell: {fileID: 0}
   - name: Cylinder
     icon: {fileID: 0}
     prefab: {fileID: 7118753092106293933, guid: 1a745de7778c79647a239b3ccfc6649f,
       type: 3}
+    capacity: 20
+    defaultAbility: 0
+    abilities: 00000000020000000100000003000000
+    cooldown: 1
+    burstCount: 3
+    timeDelay: 0.1
+    shell: {fileID: 0}

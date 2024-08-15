@@ -12,17 +12,17 @@ namespace _Game._Scripts.UI.Layer.MenuLayer
         [SerializeField]
         private Image _iconImage;
 
-        private GameObject _gObjData;
+        private int _id;
         
-        public void SetData(Sprite icon, GameObject gObjData)
+        public void SetData(Sprite icon, int id)
         {
-            _gObjData         = gObjData;
+            _id         = id;
             _iconImage.sprite = icon;
         }
 
         public void OnClick()
         {
-            BlackBoard.Instance.SetValue(BlackBoardKEY.ObjSelectionDefault,_gObjData);
+            BlackBoard.Instance.SetValue(BlackBoardKEY.IdDefaultObjectSelection,_id);
             this.PostEvent(EventID.LoadSceneMain);
         }
     }

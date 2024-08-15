@@ -11,20 +11,22 @@ public class CardChangeItem : CardBase,IOnClickNoVariable
     [Foldout("Reference")]
     [SerializeField]
     private Image _icon;
+
     [EndFoldout]
     //
-    private object  _obj;
-    private EventID _eventID;
+    private int _id;
 
-    public void SetData(object obj,Sprite icon,EventID eventID)
+    private EventID _event;
+
+    public void SetData(int id,Sprite icon,EventID eventID)
     {
-        _obj         = obj;
+        _id          = id;
         _icon.sprite = icon;
-        _eventID     = eventID;
+        _event       = eventID;
     }
     
     public void OnClick()
     {
-        this.PostEvent(_eventID,_obj);
+        this.PostEvent(_event,_id);
     }
 }

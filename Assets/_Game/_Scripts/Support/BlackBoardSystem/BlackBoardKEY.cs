@@ -11,7 +11,8 @@ namespace BlackBoardSystem
         public static readonly string MainSceneName = "MainSceneName";
         public static readonly string StartSceneName = "StartSceneName";
         public static readonly string LoadingSceneName = "LoadingSceneName";
-        public static readonly string ObjSelectionDefault = "ObjSelectionDefault";
+        public static readonly string ObjectSelectionUsing = "ObjectSelectionUsing";
+        public static readonly string IdDefaultObjectSelection = "IdDefaultObjectSelection";
         public static readonly string DontDestroyPrefab = "DontDestroyPrefab";
     }
 }
