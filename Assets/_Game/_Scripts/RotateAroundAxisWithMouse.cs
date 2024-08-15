@@ -5,13 +5,13 @@ using UnityEngine;
 
 namespace _Game._Scripts
 {
-    public class RotateAroundSmoothWithMouse : RotateWithMouse
+    public class RotateAroundAxisWithMouse : RotateWithMouse
     {
         [SerializeField]
-        private ObjRotateFlexibleInfo[] _objRotateFlexibleInfos;
+        protected ObjRotateFlexibleInfo[] _objRotateFlexibleInfos;
 
-        private Vector3 _passRotationAngle;
-        private bool    _isCanRotate;
+        protected Vector3 _passRotationAngle;
+        protected bool    _isCanRotate;
 
         protected override void Awake()
         {
@@ -19,18 +19,20 @@ namespace _Game._Scripts
             _isCanRotate = true;
             foreach (var objInfo in _objRotateFlexibleInfos)
             {
-                if (!objInfo.objRotateTf)
+                if (objInfo.objRotateTf)
                 {
-                    _isCanRotate = false;
-                    break;
+                    continue;
                 }
+
+                _isCanRotate = false;
+                break;
             }
         }
 
-        // ReSharper disable Unity.PerformanceAnalysis
         [Obsolete("Obsolete")]
         protected override void OnRotate()
         {
+            base.OnRotate();
             if (!_isCanRotate)
             {
                 Debug.LogError("Object truyền vào bị null");
@@ -48,7 +50,7 @@ namespace _Game._Scripts
             
         }
 
-        private void LoadAxisRotate(Vector3 vtAngle, AxisRotate axisRotateType, out Vector3 axisRotate,out float angle)
+        protected virtual void LoadAxisRotate(Vector3 vtAngle, AxisRotate axisRotateType, out Vector3 axisRotate,out float angle)
         {
             axisRotate = default;
             angle      = 0;
@@ -82,7 +84,7 @@ namespace _Game._Scripts
         }
         
         [Obsolete("Obsolete")]
-        private void RotateAround(Transform objTfRotate, Vector3 axis, float angle)
+        protected virtual void RotateAround(Transform objTfRotate, Vector3 axis, float angle)
         {
             objTfRotate.RotateAround(axis,angle);
         }

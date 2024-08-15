@@ -1,12 +1,16 @@
 using BlackBoardSystem;
 using UnityEngine;
+using VInspector;
 
-public class SpawnObject : MonoBehaviour
+public class ContainerObjectCtrl : MonoBehaviour
 {
     //Property
-    public  GameObject      currentObject { get; private set; }
+    public  GameObject      CurrentObject { get; private set; }
+    //
+    [Foldout("Reference")]
     [SerializeField]
     private Transform _parentObj;
+    [EndFoldout]
     
     private void OnEnable()
     {
@@ -32,15 +36,15 @@ public class SpawnObject : MonoBehaviour
         
         var gObj = simulationObjectInfo.prefab;
         
-        if (currentObject)
+        if (CurrentObject)
         {
-            DestroyImmediate(currentObject);
+            DestroyImmediate(CurrentObject);
         }
 
         _parentObj.localRotation = Quaternion.identity;
         var objApply = Instantiate(gObj, _parentObj, true);
         objApply.transform.localPosition = Vector3.zero;
         objApply.transform.localRotation = Quaternion.identity;
-        currentObject                    = objApply;
+        CurrentObject                    = objApply;
     }
 }

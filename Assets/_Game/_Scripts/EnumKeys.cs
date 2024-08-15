@@ -59,5 +59,7 @@ public enum EventID
     OnChangeAbilityMode,
     OnSelectionSimulationObject,
     OnSelectionBackground,
+    OnFeatureRotate3D,
+    OnBackToDefaultLayerMain
 }
 
