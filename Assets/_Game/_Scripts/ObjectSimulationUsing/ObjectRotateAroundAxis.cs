@@ -27,13 +27,13 @@ namespace _Game._Scripts.ObjectSimulationUsing
 
         private void OnEnable()
         {
-            EventDispatcher.Instance.RegisterListener(EventID.OnFeatureRotate3D,OnFeatureRotate3D);
+            EventDispatcher.Instance.RegisterListener(EventID.OnRotateMode,OnFeatureRotate3D);
             EventDispatcher.Instance.RegisterListener(EventID.OnBackToDefaultLayerMain,OnBackToDefaultLayerMain);
         }
         
         private void OnDisable()
         {
-            EventDispatcher.Instance.RemoveListener(EventID.OnFeatureRotate3D,OnFeatureRotate3D);
+            EventDispatcher.Instance.RemoveListener(EventID.OnRotateMode,OnFeatureRotate3D);
             EventDispatcher.Instance.RemoveListener(EventID.OnBackToDefaultLayerMain,OnBackToDefaultLayerMain);
         }
 

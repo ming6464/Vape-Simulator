@@ -32,8 +32,7 @@ namespace _Game._Scripts.UI.Layer.GameModeLayer
 
         private void LoadMode(SimulationMode mode)
         {
-            BlackBoard.Instance.SetValue(BlackBoardKEY.SimulationMode,mode);
-            this.PostEvent(EventID.OpenMenuSelectionLayer);
+            this.PostEvent(EventID.OpenMenuSelectionLayer,mode);
         }
     }
 

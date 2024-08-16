@@ -12,14 +12,14 @@ namespace _Game._Scripts.ObjectSimulationUsing
         [SerializeField]
         private Transform _pivotSpawnShell;
         //
-        private float        _cooldownDelta;
-        private bool         _canPlayAction;
+        private float          _cooldownDelta;
+        private bool           _canPlayAction;
         private MachineGunInfo _myData;
-        private float        _capacity;
-        private GameObject   _shell;
-        private bool         _canSpawnShell;
-        private bool         _onReload;
-
+        private float          _capacity;
+        private GameObject     _shell;
+        private bool           _canSpawnShell;
+        private bool           _onReload;
+        
         private void Start()
         {
             _myData        = _myInfo as MachineGunInfo;
@@ -27,6 +27,24 @@ namespace _Game._Scripts.ObjectSimulationUsing
             _shell         = _myData.shell;
             _canSpawnShell = _shell && _pivotSpawnShell;
             _canPlayAction = true;
+
+            switch (_myData.defaultAbility)
+            {
+                case AbilityMode.Single:
+                    EventDispatcher.Instance.PostEvent(EventID.OnChangeModeSingle);
+                    break;
+                case AbilityMode.Auto:
+                    EventDispatcher.Instance.PostEvent(EventID.OnChangeModeAuto);
+                    break;
+                case AbilityMode.Burst:
+                    EventDispatcher.Instance.PostEvent(EventID.OnChangeModeBurst);
+                    break;
+                case AbilityMode.Shake:
+                    EventDispatcher.Instance.PostEvent(EventID.OnChangeModeShake);
+                    break;
+                
+            }
+            
         }
 
         private void Update()
@@ -37,7 +55,7 @@ namespace _Game._Scripts.ObjectSimulationUsing
 
         private void UpdateStateObject()
         {
-            if (_capacity == 0 && !_onReload)
+            if (_capacity <= 0 && !_onReload)
             {
                 OnReload();
             }
@@ -62,7 +80,7 @@ namespace _Game._Scripts.ObjectSimulationUsing
 
         private async Task OnActionBurstMode()
         {
-            for (int i = 0; i < _myData.burstCount; i++)
+            for (var i = 0; i < _myData.burstCount; i++)
             {
                 SpawnShell();
                 OnAction();
@@ -72,7 +90,7 @@ namespace _Game._Scripts.ObjectSimulationUsing
         
         protected override void RunAction(float timeHold = 0)
         {
-            if(!_canPlayAction && _onReload) return;
+            if(!_canPlayAction || _onReload) return;
             
             if (_currentAbilityMode == AbilityMode.Burst)
             {
@@ -98,6 +116,21 @@ namespace _Game._Scripts.ObjectSimulationUsing
         {
             if(!_canSpawnShell) return;
             Debug.Log("Spawn Shell");
+        }
+
+        protected override void OnRotateMode(object obj)
+        {
+            base.OnRotateMode(obj);
+        }
+
+        protected override void OnExpandMode(object obj)
+        {
+            base.OnExpandMode(obj);
+        }
+
+        protected override void OnBackToDefaultLayerMain(object obj)
+        {
+            base.OnBackToDefaultLayerMain(obj);
         }
     }
 }

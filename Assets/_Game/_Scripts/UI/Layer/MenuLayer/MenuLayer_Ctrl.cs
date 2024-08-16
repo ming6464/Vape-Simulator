@@ -19,12 +19,7 @@ namespace _Game._Scripts.UI.Layer.MenuLayer
         private SimulationObjectInfo[] _machineGunData;
         private SimulationObjectInfo[] _scifiGunData;
         private SimulationObjectInfo[]   _lightSaberData;
-
-        protected override void Awake()
-        {
-            base.Awake();
-        }
-
+        
         protected override void OnEnable()
         {
             this.RegisterListener(EventID.OpenMenuSelectionLayer,OpenMenuSelection);
@@ -36,24 +31,10 @@ namespace _Game._Scripts.UI.Layer.MenuLayer
             this.RemoveListener(EventID.OpenMenuSelectionLayer,OpenMenuSelection);
         }
 
-        protected override void Update()
-        {
-            base.Update();
-
-            if (Input.GetKeyDown(KeyCode.V))
-            {
-                BlackBoard.Instance.SetValue(BlackBoardKEY.SimulationMode,SimulationMode.MachineGun);
-                this.PostEvent(EventID.OpenMenuSelectionLayer);
-            }
-        }
-
         private void OpenMenuSelection(object obj)
         {
-            if (!BlackBoard.Instance.TryGetValue(BlackBoardKEY.SimulationMode, out SimulationMode mode))
-            {
-                return;
-            }
-
+            var                    mode = (SimulationMode)obj;
+            BlackBoard.Instance.SetValue(BlackBoardKEY.SimulationMode,mode);
             SimulationObjectInfo[] data = null;
             switch (mode)
             { 

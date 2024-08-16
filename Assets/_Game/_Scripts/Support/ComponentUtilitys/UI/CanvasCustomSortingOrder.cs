@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using VInspector;
 
-namespace _Game._Scripts.UI
+namespace ComponentUtilitys.UI
 {
     public class CanvasCustomSortingOrder : MonoBehaviour
     {

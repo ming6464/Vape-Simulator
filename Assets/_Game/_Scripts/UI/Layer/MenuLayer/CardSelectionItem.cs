@@ -1,11 +1,12 @@
 using BlackBoardSystem;
+using ComponentUtilitys.UI;
 using UnityEngine;
 using UnityEngine.UI;
 using VInspector;
 
 namespace _Game._Scripts.UI.Layer.MenuLayer
 {
-    public class CardSelectionItem : CardBase,IOnClickNoVariable
+    public class CardSelectionItem : CardBase,IOnClick
     {
         [Tab("Card Selection")]
         [Foldout("Reference")]

@@ -29,10 +29,8 @@ namespace _Game._Scripts
             }
         }
 
-        [Obsolete("Obsolete")]
         protected override void OnRotate()
         {
-            base.OnRotate();
             if (!_isCanRotate)
             {
                 Debug.LogError("Object truyền vào bị null");

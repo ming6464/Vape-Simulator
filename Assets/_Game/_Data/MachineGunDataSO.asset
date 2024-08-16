@@ -30,10 +30,10 @@ MonoBehaviour:
       type: 3}
     capacity: 20
     defaultAbility: 0
-    abilities: 00000000020000000100000003000000
+    abilities: 0000000002000000
     cooldown: 1
     burstCount: 3
-    timeDelay: 0.1
+    timeDelay: 0.5
     shell: {fileID: 0}
   - name: Cylinder
     icon: {fileID: 0}
@@ -41,8 +41,8 @@ MonoBehaviour:
       type: 3}
     capacity: 20
     defaultAbility: 0
-    abilities: 00000000020000000100000003000000
+    abilities: 000000000200000001000000
     cooldown: 1
     burstCount: 3
-    timeDelay: 0.1
+    timeDelay: 0.9
     shell: {fileID: 0}

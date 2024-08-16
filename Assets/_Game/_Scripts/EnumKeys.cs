@@ -55,11 +55,20 @@ public enum EventID
     OpenMenuSelectionLayer,
     OpenChangeCharacterLayer,
     OnRotateMode,
+    OnExpandMode,
     OnActionProjector,
-    OnChangeAbilityMode,
     OnSelectionSimulationObject,
     OnSelectionBackground,
-    OnFeatureRotate3D,
-    OnBackToDefaultLayerMain
+    OnBackToDefaultLayerMain,
+    OnChangeModeSingle,
+    OnChangeModeAuto,
+    OnChangeModeBurst,
+    OnChangeModeShake
+}
+
+[Serializable]
+public enum PrimitiveDataType
+{
+    Default,Int,Float,String,Bool
 }
 

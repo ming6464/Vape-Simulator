@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using _Game._Scripts.UI;
+using ComponentUtilitys.UI;
 using UnityEngine;
 using UnityEngine.UI;
 using VInspector;
 
-public class CardChangeItem : CardBase,IOnClickNoVariable
+public class CardChangeItem : CardBase,IOnClick
 {
     [Tab("Card")]
     [Foldout("Reference")]

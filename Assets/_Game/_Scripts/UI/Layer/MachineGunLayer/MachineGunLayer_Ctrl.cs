@@ -3,6 +3,7 @@ using _Game._Scripts.Data;
 using _Game._Scripts.UI.Layer;
 using BlackBoardSystem;
 using UnityEngine;
+using UnityEngine.UI;
 using VInspector;
 
 public class MachineGunLayer_Ctrl : LayerBaseInGame
@@ -14,6 +15,9 @@ public class MachineGunLayer_Ctrl : LayerBaseInGame
     [SerializeField]
     private Transform _listBackgroundTf;
     
+    [SerializeField]
+    private AbilityInfo[] _abilityInfos;
+    
     [Foldout("Asset")]
     [SerializeField]
     private CardChangeItem _weaponCardPrefab;
@@ -24,6 +28,33 @@ public class MachineGunLayer_Ctrl : LayerBaseInGame
     [EndFoldout]
     private SimulationObjectInfo[] _simulationObjectInfos;
     private BackgroundInfo[]       _backgroundInfos;
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        EventDispatcher.Instance.RegisterListener(EventID.ApplyObject,UpdateModeState);
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        EventDispatcher.Instance.RemoveListener(EventID.ApplyObject,UpdateModeState);
+    }
+
+    private void UpdateModeState(object obj)
+    {
+        var simulationObj = (MachineGunInfo)obj;
+        foreach (var ability in _abilityInfos)
+        {
+            var index = Array.IndexOf(simulationObj.abilities, ability.abilityMode);
+            ability.parent.SetActive(index >= 0);
+
+            if (ability.abilityMode.Equals(simulationObj.defaultAbility))
+            {
+                ability.toggle.isOn = true;
+            }
+        }
+    }
 
     protected override void Start()
     {
@@ -94,4 +125,12 @@ public class MachineGunLayer_Ctrl : LayerBaseInGame
             break;
         }
     }
+}
+
+[Serializable]
+public struct AbilityInfo
+{
+    public GameObject parent;
+    public Toggle     toggle;
+    public AbilityMode abilityMode;
 }
