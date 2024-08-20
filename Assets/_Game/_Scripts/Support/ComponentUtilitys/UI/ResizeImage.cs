@@ -1,3 +1,4 @@
+using System;
 using _Game._Scripts.Data;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,7 +31,12 @@ namespace ComponentUtilitys.UI
         {
             this.RegisterListener(EventID.ApplyBackground,ApplyBackground);
         }
-    
+
+        private void OnDisable()
+        {
+            this.RemoveListener(EventID.ApplyBackground,ApplyBackground);
+        }
+
         private void ApplyBackground(object obj)
         {
             var bgInfo = (BackgroundInfo)obj;

@@ -13,15 +13,27 @@ MonoBehaviour:
   m_Name: BackgroundSO
   m_EditorClassIdentifier: 
   backgrounds:
-  - icon: {fileID: 21300000, guid: 38ff5f22698efec4aa1e3b438eb8bced, type: 3}
-    sprite: {fileID: 21300000, guid: 38ff5f22698efec4aa1e3b438eb8bced, type: 3}
-    resolution: {x: 1920, y: 1080}
-  - icon: {fileID: 21300000, guid: afd5d4ebb1ce46646b32d05812d5a033, type: 3}
-    sprite: {fileID: 21300000, guid: afd5d4ebb1ce46646b32d05812d5a033, type: 3}
-    resolution: {x: 1200, y: 900}
-  - icon: {fileID: 21300000, guid: ae85447fffb6eda4382e60ebf6e5d30f, type: 3}
-    sprite: {fileID: 21300000, guid: ae85447fffb6eda4382e60ebf6e5d30f, type: 3}
-    resolution: {x: 1200, y: 700}
-  - icon: {fileID: 21300000, guid: 8278583e314916440866648ead5817bf, type: 3}
-    sprite: {fileID: 21300000, guid: 8278583e314916440866648ead5817bf, type: 3}
-    resolution: {x: 1080, y: 540}
+  - icon: {fileID: 21300000, guid: de7d0fa53e6719c4bbe6f3ff862c553d, type: 2}
+    sprite: {fileID: 21300000, guid: c69122f3c284f7c4499f4422f0b5f0f4, type: 2}
+    resolution: {x: 1920, y: 1920}
+  - icon: {fileID: 21300000, guid: 0bfe9b897753ede448601240fc8cb869, type: 2}
+    sprite: {fileID: 21300000, guid: 68234cdbcc13528478298205a3875331, type: 2}
+    resolution: {x: 1920, y: 1920}
+  - icon: {fileID: 21300000, guid: 07b3864599e0e2f41ab79cb6bab70d9e, type: 2}
+    sprite: {fileID: 21300000, guid: 48b6da553f541694ebef7b9011b5fdfc, type: 2}
+    resolution: {x: 1920, y: 1920}
+  - icon: {fileID: 21300000, guid: 54c4fc1ed8a929f4da52d241e7eddf3c, type: 2}
+    sprite: {fileID: 21300000, guid: 4e645bac75dab1947af4fd2378d9d6a2, type: 2}
+    resolution: {x: 1920, y: 1920}
+  - icon: {fileID: 21300000, guid: 904a72d400f5e384ba8ae1aa764b296b, type: 2}
+    sprite: {fileID: 21300000, guid: 9eccbaac8eafba44fafa5fb1c18fd3fb, type: 2}
+    resolution: {x: 1920, y: 1920}
+  - icon: {fileID: 21300000, guid: 0576baeb91e08f54fb40403a0e3442e7, type: 2}
+    sprite: {fileID: 21300000, guid: c248d73b73737e14d82a23daec0169bc, type: 2}
+    resolution: {x: 1920, y: 1920}
+  - icon: {fileID: 21300000, guid: 8111f56e1f9978e4e99e88bf6d4c4c23, type: 2}
+    sprite: {fileID: 21300000, guid: 417ecf27f5bad33498daf7ad179112ec, type: 2}
+    resolution: {x: 1920, y: 1920}
+  - icon: {fileID: 21300000, guid: 40183a89589b30649a2c794a4a59d928, type: 2}
+    sprite: {fileID: 21300000, guid: 42dffc0ab7113ea4fb7bf3d0180cba4b, type: 2}
+    resolution: {x: 1920, y: 1920}
