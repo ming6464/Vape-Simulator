@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Reflection;
 using UnityEngine;
 #if UNITY_EDITOR
@@ -47,8 +48,70 @@ namespace VInspector
 
     public class VariantsAttribute : PropertyAttribute
     {
-        public string[] variants;
-        public VariantsAttribute(params string[] variants) => this.variants = variants;
+        public string[]     variants;
+        public          VariantsType type;
+        public VariantsAttribute(params string[] variants) {
+            this.variants = variants;
+            type          = VariantsType.@string;
+        }
+
+        public VariantsAttribute(params int[] variants)
+        {
+            this.variants = new String[variants.Length];
+
+            for (int i = 0; i < variants.Length; i++)
+            {
+                this.variants[i] = variants[i].ToString();
+            }
+            
+            type = VariantsType.@int;
+        }
+        
+        public VariantsAttribute(params float[]  variants){
+            this.variants = new String[variants.Length];
+
+            for (var i = 0; i < variants.Length; i++)
+            {
+                this.variants[i] = variants[i].ToString(CultureInfo.InvariantCulture);
+            }
+            type = VariantsType.@float;
+        }
+        
+        // public VariantsAttribute(params Vector2[] variants){
+        //     this.variants = new String[variants.Length];
+        //
+        //     for (var i = 0; i < variants.Length; i++)
+        //     {
+        //         this.variants[i] = variants[i].ToString();
+        //     }
+        //     type = VariantsType.vector2;
+        // }
+        //
+        // public VariantsAttribute(params Vector3[] variants){
+        //     this.variants = new String[variants.Length];
+        //
+        //     for (var i = 0; i < variants.Length; i++)
+        //     {
+        //         this.variants[i] = variants[i].ToString();
+        //     }
+        //     type = VariantsType.vector3;
+        // }
+        //
+        // public VariantsAttribute(params Vector4[] variants){
+        //     this.variants = new String[variants.Length];
+        //
+        //     for (var i = 0; i < variants.Length; i++)
+        //     {
+        //         this.variants[i] = variants[i].ToString();
+        //     }
+        //     type = VariantsType.vector4;
+        // }
+    }
+
+    [Serializable]
+    public enum VariantsType
+    {
+        @string,@int,@float,@vector2,@vector3,@vector4
     }
 
 
@@ -334,6 +397,4 @@ namespace VInspector
     }
 
     public class EndIfAttribute : System.Attribute { }
-
-
 }

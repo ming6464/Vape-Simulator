@@ -20,9 +20,9 @@ MonoBehaviour:
     capacity: 20
     defaultAbility: 0
     abilities: 00000000020000000100000003000000
-    cooldown: 1
+    cooldown: 0.1
     burstCount: 3
-    timeDelay: 0.1
+    timeDelay: 0.03
     shell: {fileID: 0}
   - name: Cube
     icon: {fileID: 0}
@@ -31,9 +31,9 @@ MonoBehaviour:
     capacity: 20
     defaultAbility: 0
     abilities: 0000000002000000
-    cooldown: 1
+    cooldown: 0.12
     burstCount: 3
-    timeDelay: 0.5
+    timeDelay: 0.05
     shell: {fileID: 0}
   - name: Cylinder
     icon: {fileID: 0}
@@ -42,7 +42,7 @@ MonoBehaviour:
     capacity: 20
     defaultAbility: 0
     abilities: 000000000200000001000000
-    cooldown: 1
+    cooldown: 0.2
     burstCount: 3
-    timeDelay: 0.9
+    timeDelay: 0.1
     shell: {fileID: 0}

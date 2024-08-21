@@ -6,22 +6,25 @@ using VInspector;
 
 namespace ComponentUtilitys.UI
 {
-    public class ResizeImage : MonoBehaviour
+    public class ResizeBackgroundImage : MonoBehaviour
     {
+        [Foldout("Info")]
+        [SerializeField,Variants(0,1)]
+        private int _match = 1;
+        [SerializeField]
+        private Vector2 _resolutionReference = new (1080,1920);
         [Foldout("Reference")]
         [SerializeField]
         private Image _image;
         [Foldout("Data")]
         [SerializeField]
         private Sprite _sprite;
-    
         [SerializeField]
         private Vector2 _resolution;
         [EndFoldout]
         //
         private RectTransform _imageRtf;
-    
-        
+
         private void Awake()
         {
             _imageRtf = _image.rectTransform;
@@ -50,20 +53,37 @@ namespace ComponentUtilitys.UI
         }
         private void ApplySpriteResolution()
         {
-            float height    = 0;
-            float width     = 0;
-            float subtractW = Screen.width - _resolution.x;
-            float subtractH = Screen.height - _resolution.y;
+            float width                = 0;
+            float height               = 0;
+            float screenHeightCalculate = 0;
+            float screenWidthCalculate = 0;
+            
+
+            if (_match - 1 == 0)
+            {
+                screenHeightCalculate = _resolutionReference.y;
+                var ratio           = screenHeightCalculate / Screen.height;
+                screenWidthCalculate = Screen.width * ratio;
+            }
+            else
+            {
+                screenWidthCalculate = _resolutionReference.x;
+                var ratio = screenWidthCalculate / Screen.width;
+                screenHeightCalculate = Screen.height * ratio;
+            }
+
+            float subtractW = screenWidthCalculate - _resolution.x;
+            float subtractH = screenHeightCalculate - _resolution.y;
     
             if (subtractW > subtractH)
             {
-                width = Screen.width;
+                width = screenWidthCalculate;
                 var ratio = width / _resolution.x;
                 height = _resolution.y * ratio;
             }
             else
             {
-                height = Screen.height;
+                height = screenHeightCalculate;
                 var ratio = height / _resolution.y;
                 width = _resolution.x * ratio;
             }
@@ -71,7 +91,6 @@ namespace ComponentUtilitys.UI
             _imageRtf.sizeDelta = new Vector2(width, height);
             _image.sprite       = _sprite;
         }
-        
+
     }
 }
-
