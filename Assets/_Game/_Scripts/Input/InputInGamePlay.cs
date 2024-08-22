@@ -3,43 +3,41 @@ using UnityEngine;
 
 public class InputInGamePlay : Singleton<InputInGamePlay>
 {
-    public Action<float> onMouseHold;
-    public Action        onMouseClick;
-    public Action        onShake;
-    public Vector3       MousePosition     { get; private set; }
-    public Vector3       PassMousePosition { get; private set; }
+    public Action onStartHold;
+    public Action onEndHold;
+    public Action onClick;
+    public Action onShake;
 
-    private float _holdTime;
+    private float _longPressTime = 0f;
+    private Vector3 _lastAcceleration;
+    private const float ShakeThreshold = 2.0f; // Adjust this threshold as needed
 
     private void Update()
     {
-        UpdateMousePosition();
-        
+        DetectShake();
     }
 
-    private void UpdateMousePosition()
+    public void onPointerDown()
     {
-        if (Input.GetMouseButtonDown(0))
+        onStartHold?.Invoke();
+        onClick?.Invoke();
+    }
+
+    public void onPointerUp()
+    {
+        onEndHold?.Invoke();
+    }
+
+    private void DetectShake()
+    {
+        Vector3 acceleration = Input.acceleration;
+        Vector3 deltaAcceleration = acceleration - _lastAcceleration;
+
+        if (deltaAcceleration.sqrMagnitude >= ShakeThreshold * ShakeThreshold)
         {
-            MousePosition     = Input.mousePosition;
-            PassMousePosition = MousePosition;
-            _holdTime         = 0;
-            
-            onMouseClick?.Invoke();
+            onShake?.Invoke();
         }
 
-        if (Input.GetMouseButton(0))
-        {
-            PassMousePosition = MousePosition;
-            MousePosition     = Input.mousePosition;
-
-            _holdTime += Time.deltaTime;
-            onMouseHold?.Invoke(_holdTime);
-        }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            PassMousePosition = MousePosition;
-        }
+        _lastAcceleration = acceleration;
     }
 }

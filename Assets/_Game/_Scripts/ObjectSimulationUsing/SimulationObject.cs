@@ -21,10 +21,11 @@ namespace _Game._Scripts.SimulateObjectUsing
         {
             if (InputInGamePlay.Instance)
             {
-                _hasInput                             =  true;
-                InputInGamePlay.Instance.onMouseClick += OnPlayActionClick;
-                InputInGamePlay.Instance.onShake      += OnPlayActionShake;
-                InputInGamePlay.Instance.onMouseHold  += OnPlayActionHold;
+                _hasInput                            =  true;
+                InputInGamePlay.Instance.onClick     += OnPlayActionClick;
+                InputInGamePlay.Instance.onShake     += OnPlayActionShake;
+                InputInGamePlay.Instance.onStartHold += OnStartHold;
+                InputInGamePlay.Instance.onEndHold   += onEndHold;
                 EventDispatcher.Instance.RegisterListener(EventID.OnRotateMode,OnRotateMode);
                 EventDispatcher.Instance.RegisterListener(EventID.OnExpandMode,OnExpandMode);
                 EventDispatcher.Instance.RegisterListener(EventID.OnBackToDefaultLayerMain,OnBackToDefaultLayerMain);
@@ -48,9 +49,10 @@ namespace _Game._Scripts.SimulateObjectUsing
         {
             if (_hasInput &&InputInGamePlay.Instance)
             {
-                InputInGamePlay.Instance.onMouseClick -= OnPlayActionClick;
-                InputInGamePlay.Instance.onShake      -= OnPlayActionShake;
-                InputInGamePlay.Instance.onMouseHold  -= OnPlayActionHold;
+                InputInGamePlay.Instance.onClick     -= OnPlayActionClick;
+                InputInGamePlay.Instance.onShake     -= OnPlayActionShake;
+                InputInGamePlay.Instance.onStartHold -= OnStartHold;
+                InputInGamePlay.Instance.onEndHold   -= onEndHold;
                 EventDispatcher.Instance.RemoveListener(EventID.OnRotateMode,OnRotateMode);
                 EventDispatcher.Instance.RemoveListener(EventID.OnExpandMode,OnExpandMode);
                 EventDispatcher.Instance.RemoveListener(EventID.OnBackToDefaultLayerMain,OnBackToDefaultLayerMain);
@@ -78,11 +80,17 @@ namespace _Game._Scripts.SimulateObjectUsing
         {
             _currentAbilityMode = AbilityMode.Single;
         }
-
-        protected virtual void OnPlayActionHold(float timeHold)
+        
+        protected virtual void OnStartHold()
         {
             if(_isBusy || _currentAbilityMode != AbilityMode.Auto) return;
-            RunAction(timeHold);
+            RunAction();
+        }
+        
+        protected virtual void onEndHold()
+        {
+            if(_isBusy || _currentAbilityMode != AbilityMode.Auto) return;
+            RunAction();
         }
 
         protected virtual void OnPlayActionClick()

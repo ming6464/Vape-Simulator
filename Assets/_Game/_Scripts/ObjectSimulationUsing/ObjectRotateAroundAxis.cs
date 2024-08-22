@@ -1,58 +1,60 @@
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace _Game._Scripts.ObjectSimulationUsing
 {
-    public class ObjectRotateAroundAxis : RotateAroundAxisWithMouse
+    public class ObjectRotateAroundAxis : MonoBehaviour
     {
         [Header("Info")]
         [SerializeField]
         private float _timeAnimRotateToDefault;
-        //
-        private bool             _activeRotate;
-        private float            _timeAnimDelta;
-        private bool             _goToDefault;
-        private ObjectRotateInfo[] _objectRotateInfos;
 
-        protected override void Awake()
+        [SerializeField]
+        private float _speedRotateUp;
+
+        [SerializeField]
+        private float _speedRotateRight;
+
+        private bool  _activeRotate;
+        private float _timeAnimDelta;
+
+        [SerializeField]
+        private Transform _objRotateTransform;
+
+        private Quaternion _rotateSave;
+
+        protected void Awake()
         {
-            base.Awake();
-            var length = _objRotateFlexibleInfos.Length;
-            _objectRotateInfos = new ObjectRotateInfo[length];
-            for (var i = 0; i < length; i++)
+            if (_objRotateTransform != null)
             {
-                _objectRotateInfos[i] = new(_objRotateFlexibleInfos[i]);
+                return;
             }
+
+            Debug.LogError("Object to rotate is not assigned.");
+            _activeRotate = false;
         }
 
         private void OnEnable()
         {
-            EventDispatcher.Instance.RegisterListener(EventID.OnRotateMode,OnFeatureRotate3D);
-            EventDispatcher.Instance.RegisterListener(EventID.OnBackToDefaultLayerMain,OnBackToDefaultLayerMain);
+            EventDispatcher.Instance.RegisterListener(EventID.OnRotateMode, OnFeatureRotate3D);
+            EventDispatcher.Instance.RegisterListener(EventID.OnBackToDefaultLayerMain, OnBackToDefaultLayerMain);
         }
-        
+
         private void OnDisable()
         {
-            EventDispatcher.Instance.RemoveListener(EventID.OnRotateMode,OnFeatureRotate3D);
-            EventDispatcher.Instance.RemoveListener(EventID.OnBackToDefaultLayerMain,OnBackToDefaultLayerMain);
+            EventDispatcher.Instance.RemoveListener(EventID.OnRotateMode, OnFeatureRotate3D);
+            EventDispatcher.Instance.RemoveListener(EventID.OnBackToDefaultLayerMain, OnBackToDefaultLayerMain);
         }
 
-        private void Update()
+        private async Task GoBackToDefault()
         {
-            if (_goToDefault)
+            while (_timeAnimDelta < _timeAnimRotateToDefault)
             {
                 _timeAnimDelta += Time.deltaTime;
-
-                if (_timeAnimDelta - _timeAnimRotateToDefault >= 0)
-                {
-                    _timeAnimDelta = _timeAnimRotateToDefault;
-                    _goToDefault   = false;
-                }
-
-                foreach (var objInfo in _objectRotateInfos)
-                {
-                    objInfo.GoToZero(_timeAnimDelta/_timeAnimRotateToDefault);
-                }
+                var progress = _timeAnimDelta / _timeAnimRotateToDefault;
+                _objRotateTransform.rotation = Quaternion.Slerp(_rotateSave, Quaternion.identity, progress);
+                await Task.Yield();
             }
         }
 
@@ -60,12 +62,8 @@ namespace _Game._Scripts.ObjectSimulationUsing
         {
             _activeRotate  = false;
             _timeAnimDelta = 0;
-            _goToDefault   = true;
-
-            foreach (var objInfo in _objectRotateInfos)
-            {
-                objInfo.SaveRotate();
-            }
+            _rotateSave    = _objRotateTransform.rotation;
+            _              = GoBackToDefault();
         }
 
         private void OnFeatureRotate3D(object obj)
@@ -73,32 +71,18 @@ namespace _Game._Scripts.ObjectSimulationUsing
             _activeRotate = true;
         }
 
-        protected override void OnRotate()
+        private void OnRotate(Vector2 startPoint, Vector2 previousPoint, Vector2 currentPoint)
         {
-            if(!_activeRotate) return;
-            base.OnRotate();
-        }
-        //
-        private class ObjectRotateInfo
-        {
-            public Transform  objTf;
-            public Quaternion rotateSave;
+            if (!_activeRotate)
+                return;
 
-            public ObjectRotateInfo(ObjRotateFlexibleInfo objFlexible)
-            {
-                objTf = objFlexible.objRotateTf;
-            }
-            
-            public void SaveRotate()
-            {
-                rotateSave = objTf.rotation;
-            }
+            var delta = currentPoint - previousPoint;
 
-            public void GoToZero(float progress)
-            {
-                objTf.rotation = Quaternion.Slerp(rotateSave, Quaternion.identity, progress);
-            }
-            
+            var angleUp    = -delta.x * _speedRotateUp * Time.deltaTime;
+            var angleRight = delta.y * _speedRotateRight * Time.deltaTime;
+
+            _objRotateTransform.RotateAround(_objRotateTransform.position, Vector3.up, angleUp);
+            _objRotateTransform.RotateAround(_objRotateTransform.position, Vector3.right, angleRight);
         }
     }
 }

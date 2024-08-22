@@ -67,9 +67,43 @@ MonoBehaviour:
       itemIndex: 0
     - itemName: 2
       itemIndex: 1
+  - isActive: 1
+    isExpanded: 1
+    type: 1
+    labelType: 0
+    labelText: Test Scene
+    labelIcon: {fileID: 0}
+    useStyle: 0
+    editorStyle: 0
+    styleName: 
+    skin: {fileID: 0}
+    useWidth: 0
+    width: 85.07
+    useColors: 0
+    globalColor: {r: 1, g: 1, b: 1, a: 1}
+    contentColor: {r: 1, g: 1, b: 1, a: 1}
+    backgroundColor: {r: 1, g: 1, b: 1, a: 1}
+    useTooltip: 0
+    linesCount: 0
+    labelTooltip: Go to main scene
+    togglePrefName: 
+    actions:
+    - mouseButton: 0
+      keyboardButton: 0
+      buttonType: 1
+      buttonObject: {fileID: 102900000, guid: cebad5258f862594e930052e6c79a6cb, type: 3}
+      objectName: 
+      className: 
+      methodName: 
+    showNameField: 0
+    intNamesList:
+    - itemName: 1
+      itemIndex: 0
+    - itemName: 2
+      itemIndex: 1
   rightSide:
   - isActive: 1
-    isExpanded: 0
+    isExpanded: 1
     type: 1
     labelType: 0
     labelText: Play Game
