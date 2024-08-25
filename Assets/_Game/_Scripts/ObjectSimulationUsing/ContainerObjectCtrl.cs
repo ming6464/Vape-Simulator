@@ -1,3 +1,4 @@
+using System;
 using BlackBoardSystem;
 using UnityEngine;
 using VInspector;
@@ -10,6 +11,8 @@ public class ContainerObjectCtrl : MonoBehaviour
     [Foldout("Reference")]
     [SerializeField]
     private Transform _parentObj;
+    [SerializeField]
+    private RenderTexture _renderTexture;
     [EndFoldout]
     
     private void OnEnable()
@@ -22,7 +25,15 @@ public class ContainerObjectCtrl : MonoBehaviour
     {
         this.RemoveListener(EventID.ApplyObject,ApplyObj);
     }
-    
+
+    private void Start()
+    {
+        _renderTexture.Release();
+        _renderTexture.width = Screen.width;
+        _renderTexture.height = Screen.height;
+        _renderTexture.Create();
+    }
+
 
     private void ApplyObj(object obj)
     {

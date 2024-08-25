@@ -35,18 +35,6 @@ namespace _Game._Scripts.ObjectSimulationUsing
             _activeRotate = false;
         }
 
-        private void OnEnable()
-        {
-            EventDispatcher.Instance.RegisterListener(EventID.OnRotateMode, OnFeatureRotate3D);
-            EventDispatcher.Instance.RegisterListener(EventID.OnBackToDefaultLayerMain, OnBackToDefaultLayerMain);
-        }
-
-        private void OnDisable()
-        {
-            EventDispatcher.Instance.RemoveListener(EventID.OnRotateMode, OnFeatureRotate3D);
-            EventDispatcher.Instance.RemoveListener(EventID.OnBackToDefaultLayerMain, OnBackToDefaultLayerMain);
-        }
-
         private async Task GoBackToDefault()
         {
             while (_timeAnimDelta < _timeAnimRotateToDefault)
@@ -58,7 +46,7 @@ namespace _Game._Scripts.ObjectSimulationUsing
             }
         }
 
-        private void OnBackToDefaultLayerMain(object obj)
+        public void ResetRotate()
         {
             _activeRotate  = false;
             _timeAnimDelta = 0;
@@ -66,7 +54,7 @@ namespace _Game._Scripts.ObjectSimulationUsing
             _              = GoBackToDefault();
         }
 
-        private void OnFeatureRotate3D(object obj)
+        public void EnableFeatureRotate3D()
         {
             _activeRotate = true;
         }
