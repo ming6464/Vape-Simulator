@@ -13,36 +13,69 @@ MonoBehaviour:
   m_Name: MachineGunDataSO
   m_EditorClassIdentifier: 
   objectInfos:
-  - name: Capsule
-    icon: {fileID: 0}
-    prefab: {fileID: 6244967858771628935, guid: 8136cbf272655314d9388010d32921f2,
+  - name: Ak 1
+    icon: {fileID: 21300000, guid: f9cc6b22ace71484097dbbfc5396d00a, type: 2}
+    prefab: {fileID: 7894446073890355600, guid: 8c02caab470d40b4a8c9c6538c488439,
       type: 3}
-    capacity: 20
+    capacity: 26
     defaultAbility: 0
-    abilities: 00000000020000000100000003000000
-    cooldown: 0.1
-    burstCount: 3
-    timeDelay: 0.03
+    abilities: 00000000010000000200000003000000
+    cooldown: 0.17
+    burstCount: 5
+    timeDelay: 0.2
     shell: {fileID: 0}
-  - name: Cube
-    icon: {fileID: 0}
-    prefab: {fileID: 3757156619880582251, guid: 31f69557191e55349a0f439bfd6b421e,
+  - name: UMP 1
+    icon: {fileID: 21300000, guid: e01d5c1c8d6cc624fab2b19476ffb35d, type: 2}
+    prefab: {fileID: 7213610001728425354, guid: 017294c188a64b445a1b5fb94de19863,
       type: 3}
-    capacity: 20
+    capacity: 35
     defaultAbility: 0
-    abilities: 0000000002000000
-    cooldown: 0.12
-    burstCount: 3
-    timeDelay: 0.05
+    abilities: 00000000010000000200000003000000
+    cooldown: 0.13
+    burstCount: 5
+    timeDelay: 0.2
     shell: {fileID: 0}
-  - name: Cylinder
-    icon: {fileID: 0}
-    prefab: {fileID: 7118753092106293933, guid: 1a745de7778c79647a239b3ccfc6649f,
+  - name: Pistol 2
+    icon: {fileID: 21300000, guid: 69f43c52aa93337448baeace57b7abbc, type: 2}
+    prefab: {fileID: 7968999790973456112, guid: 9a410d2120af1b54fad674c8937ee307,
       type: 3}
-    capacity: 20
+    capacity: 35
     defaultAbility: 0
-    abilities: 000000000200000001000000
-    cooldown: 0.2
+    abilities: 00000000010000000200000003000000
+    cooldown: 0.25
     burstCount: 3
-    timeDelay: 0.1
+    timeDelay: 0.2
+    shell: {fileID: 0}
+  - name: Scar 1
+    icon: {fileID: 21300000, guid: 8f4b2be7c0bb0834d8c9483461526644, type: 2}
+    prefab: {fileID: 1215620740054873084, guid: 810dddb1b6df74f4990c59b4d32ee6bc,
+      type: 3}
+    capacity: 30
+    defaultAbility: 0
+    abilities: 00000000010000000200000003000000
+    cooldown: 0.22
+    burstCount: 4
+    timeDelay: 0.2
+    shell: {fileID: 0}
+  - name: G36C 1
+    icon: {fileID: 21300000, guid: 3acf9585d118ab34399d434a98f60079, type: 2}
+    prefab: {fileID: 8380968462181043186, guid: 8375c91e9682e374abaa891381cf5efb,
+      type: 3}
+    capacity: 24
+    defaultAbility: 0
+    abilities: 00000000010000000200000003000000
+    cooldown: 0.15
+    burstCount: 4
+    timeDelay: 0.2
+    shell: {fileID: 0}
+  - name: AWM 1
+    icon: {fileID: 21300000, guid: df862cb9674d2d342b5297bc3b823597, type: 2}
+    prefab: {fileID: 1664981365694148669, guid: 795a1f1d0dfbbce42a7eae9a9089e047,
+      type: 3}
+    capacity: 3
+    defaultAbility: 0
+    abilities: 000000000200000003000000
+    cooldown: 0.3
+    burstCount: 4
+    timeDelay: 0.2
     shell: {fileID: 0}
