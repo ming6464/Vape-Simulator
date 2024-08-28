@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff23380028bc2c41a94e6840562c3d9, type: 3}
+  m_Name: Smoke
+  m_EditorClassIdentifier: 
+  AtlasName: Smoke_Atlas
+  AtlasWidth: 1536
+  AtlasHeight: 512
+  CellWidth: 512
+  CellHeight: 512
+  DisableCompression: 0
+  Textures:
+  - {fileID: 2800000, guid: 77610f6cb9d974345b2b025b0cbd4afb, type: 3}
+  - {fileID: 2800000, guid: ce152ff4ba070fa45a76c9f6866aeab4, type: 3}
+  - {fileID: 2800000, guid: 1d5dd49e1fa4cbb4a94ed28ed7efe379, type: 3}

@@ -56,6 +56,7 @@ public class ContainerObjectCtrl : MonoBehaviour
         var objApply = Instantiate(gObj, _parentObj, true);
         objApply.transform.localPosition = Vector3.zero;
         objApply.transform.localRotation = Quaternion.identity;
+        objApply.transform.localScale = Vector3.one;
         CurrentObject                    = objApply;
     }
 }

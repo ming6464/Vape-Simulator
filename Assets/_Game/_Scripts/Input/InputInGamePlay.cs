@@ -12,6 +12,14 @@ public class InputInGamePlay : Singleton<InputInGamePlay>
     private Vector3 _lastAcceleration;
     private const float ShakeThreshold = 2.0f; // Adjust this threshold as needed
 
+    private void OnDisable()
+    {
+        onStartHold = null;
+        onEndHold = null;
+        onClick = null;
+        onShake = null;
+    }
+
     private void Update()
     {
         DetectShake();
