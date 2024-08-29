@@ -63,7 +63,9 @@ public enum EventID
     OnChangeModeSingle,
     OnChangeModeAuto,
     OnChangeModeBurst,
-    OnChangeModeShake
+    OnChangeModeShake,
+    ProgressLoading,
+    FinishLoading,
 }
 
 [Serializable]

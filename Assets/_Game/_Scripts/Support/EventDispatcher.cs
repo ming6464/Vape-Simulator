@@ -125,6 +125,14 @@ public class EventDispatcher : MonoBehaviour
             // Common.Warning(false, "RemoveListener, not found key : " + eventID);
         }
     }
+    
+    public void RemoveEvent(EventID eventID)
+    {
+        if (_listeners.ContainsKey(eventID))
+        {
+            _listeners[eventID] = null;
+        }
+    }
 
     /// <summary>
     /// Clears all the listener.
@@ -173,6 +181,11 @@ public static class EventDispatcherExtension
     public static void PostEvent(this MonoBehaviour sender, EventID eventID)
     {
         EventDispatcher.Instance.PostEvent(eventID, null);
+    }
+    
+    public static void RemoveEvent(this MonoBehaviour listener, EventID eventID)
+    {
+        EventDispatcher.Instance.RemoveEvent(eventID);
     }
 }
 
